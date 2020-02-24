@@ -1,7 +1,7 @@
 awesome-slugify==1.6.5
 Babel==2.3.4
 beautifulsoup4==4.7.1
-Flask==0.10.1
+Flask==1.0
 Flask-Babel==0.9
 Flask-BasicAuth==0.2.0
 Flask-Cache==0.13.1
