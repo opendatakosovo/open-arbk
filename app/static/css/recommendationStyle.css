@@ -1,0 +1,55 @@
+.header {
+    min-height: auto;
+}
+.bg-color{
+    min-height: auto;
+}
+.recPage{
+    padding-left: 40px;
+    list-style-type: disc;
+}
+#recommendationPage{
+    color: #000;
+    font-size: 17px;
+    padding-top: 50px
+}
+#whyPage{
+    color: #000;
+    font-size: 17px;
+    padding-top: 50px
+}
+.illustration-img{
+    width: 70px;
+    height: 70px;
+}
+.recommendation-links{
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+#recommendationPage .illustration-row {
+    text-align: center;
+}
+@media (max-width:767px) {
+    .illustration-content{
+        height: 200px !important;
+    }
+}
+@media (max-width:420px) {
+    .illustration-content{
+        height: 300px !important;
+    }
+}
+@media (min-width:420px)and(max-width:767px) {
+    .illustration-content{
+        height: 250px !important;
+    }
+}
+
+
+.illustration-content{
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+    transition: all 0.5s;
+}

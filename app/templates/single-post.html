@@ -1,0 +1,92 @@
+{% extends 'layout.html'%}
+
+{% block htmlmetatags %}
+<title>
+    {{post['title_'+('al' if g.current_lang == 'sq' else g.current_lang)]}} | {{_('Bizneset e Hapura')}}
+</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='img/faviconARBK.png')}}" />
+<!-- Facebook meta tags -->
+<meta property="og:title" content="{{post['title_'+('al' if g.current_lang == 'sq' else g.current_lang)]}} | {{_('Bizneset e Hapura')}}">
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{_('Bizneset e Hapura')}}" />
+<meta property="og:description" content="{{post['meta_desc_'+('al' if g.current_lang == 'sq' else g.current_lang)]}}">
+<meta property="og:image:url" content="{{ '/static/img/blog/'+post['feature_img'] if post['feature-image'] != '' else url_for('static', filename="img/share_fb1_%s.jpg"%g.current_lang) }}">
+<meta property="og:url" content="{{request.url}}">
+<!-- Twitter meta tags -->
+<meta property="twitter:title" content="{{_('Bizneset e Hapura')}}">
+<meta property="twitter:description" content="{{post['meta_desc_'+('al' if g.current_lang == 'sq' else g.current_lang)]}}">
+<meta property="twitter:image" content="{{ '/static/img/blog/'+post['feature_img'] if post['feature-image'] != '' else url_for('static', filename="img/share_tw_%s.jpg"%g.current_lang) }}">
+<meta property="twitter:card" content="summary_medium_image">
+<meta name="twitter:creator" content="@OpenDataKosovo">
+{% endblock %}
+
+{% block header %}
+<div class="banner-info text-center">
+    <h2 class="bnr-sub-title">{{post['title_'+('al' if g.current_lang == 'sq' else g.current_lang)]}}</h2>
+</div>
+{% endblock %}
+{% block content%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/blogPage.css')}}">
+
+<section id="blogPage">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-lg-8 col-center">
+            {% if post['feature_img'] %}
+            <div class="featured-image">
+                <img src="/static/img/blog/{{ post['feature_img']}}" class="img-responsive" style="max-width: 100%;     max-height: 300px;
+                margin: 0 auto;" />
+            </div>
+            <br>
+            {% endif %}
+            <div class="single-post-content">
+                {{post['content_'+('al' if g.current_lang == 'sq' else g.current_lang)]}}
+            </div>
+            <div id="fb-root"></div>
+            <div style="display: flex;flex-direction: row;align-items: flex-start; float: right;">
+                <div class="fb-share-button" data-href="{{request.url}}" data-layout="button" size="large"
+                    data-mobile-iframe="true">
+                </div>
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{post['title_'+('al' if g.current_lang == 'sq' else g.current_lang)]}}"
+                    data-size="large">
+                    Tweet</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    // When viewing a post update .single-post-content innerHTML
+    $('.single-post-content').html($('.single-post-content').text());
+
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));
+
+</script>
+
+{% endblock %}

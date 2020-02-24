@@ -1,0 +1,32 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{_('Fshij autorin')}} {{ author['first_name'] }} {{ author['last_name'] }}</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel-body">
+            <p>{{_('A jeni i sigurt?')}}</p>
+            <form method="POST" action="{{ url_for('authors.delete', lang_code=g.current_lang, author_id=author['_id'])}}">
+                <button type="submit" class="btn btn-primary">{{_('Fshij')}}</button>
+                <a type="button" class="btn btn-default" href="{{ url_for('authors.index', lang_code=g.current_lang)}}">{{_('Jo,
+                    mos e fshij')}}</a>
+
+            </form>
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

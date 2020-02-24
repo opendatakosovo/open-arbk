@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+{% block content%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/recommendationStyle.css')}}">
+<!-- <div class="text-center" style="padding-top: 25px;">
+        <button type="button" class="btn btn-default about-btn" id="aboutButton">{{_('P&euml;r')}}</button>
+        <button type="button" class="btn btn-default why-btn" id="whyButton">{{_('Pse')}}</button>
+    </div> -->
+<section id="recommendationPage">
+    <p>{{_('Open Data Kosovo beson q&euml; hapja e t&euml; dh&euml;nave &euml;sht&euml; esenciale n&euml; vendosjen e qeverisjes s&euml; mir&euml;, transparente dhe llogaridh&euml;n&euml;se. T&euml; dh&euml;nat e hapura jan&euml; m&euml;nyr&euml; fundamentale e pjes&euml;marrjes qytetare n&euml; vendimarrje. P&euml;r k&euml;t&euml; arsye t&euml; dh&euml;nat q&euml; ofrohen nga institucionet qeveritare duhet t&euml; jen&euml; publike, leht&euml;sisht t&euml; qasshme, si dhe n&euml; formate t&euml; hapura.')}}
+    </p>
+    <p>{{_('Me dat&euml; 05-13-2016 Qeveria e Kosov&euml;s miratoi Kart&euml;n p&euml;r Hapjen e t&euml; Dh&euml;nave n&euml; Republik&euml;n e Kosov&euml;s. Sipas k&euml;tij dokumenti Republika e Kosov&euml;s ka marr&euml; zotim t’i p&euml;rshtatet principit t&euml; hapjes s&euml; dh&euml;nave p&euml;r t&euml; mir&euml;n publike.')}}
+        <a href="https://gzk.rks-gov.net/ActDetail.aspx?ActID=2724"
+            target="_blank">{{_('Ligji p&euml;r qasje n&euml; dokumente publike')}}</a>
+        {{_('&euml;sht&euml; n&euml; fuqi dhe garanton qasje t&euml; lir&euml; n&euml; k&euml;to informata. Sidoqoft&euml;, k&euml;rkes&euml;s ton&euml; p&euml;r t&euml; pasur qasje n&euml; regjistrin e bizneseve, Agjencia p&euml;r Regjistrimin e Bizneseve t&euml; Kosov&euml;s, e cila funksionon n&euml; kuad&euml;r t&euml; Ministris&euml; s&euml; Tregtis&euml; dhe Industris&euml;, i &euml;sht&euml; p&euml;rgjigjur pozitivisht, por duke k&euml;rkuar kompensim financiar, edhe p&euml;r kopjet elektronike. Duke marr parasysh se pagesa p&euml;r qasje n&euml; t&euml; dh&euml;nat zyrtare bie ndesh me Ligjin p&euml;r qasje n&euml; dokumente publike dhe me')}}
+        <a href="https://gzk.rks-gov.net/ActDetail.aspx?ActID=10015"
+            target="_blank">{{_('Rregulloren nr.02/2012 p&euml;r tarifat n&euml; qasje n&euml; dokumente publike')}}</a>,
+        {{_('ODK nuk ka pranuar q&euml; t&euml; b&euml;j nj&euml; pages&euml; t&euml; till&euml;.')}}</p>
+    <p>{{_('P&euml;r k&euml;t&euml; arsye ne jemi t&euml; detyruar t’i gjenerojm&euml; informatat nga webfaqja e ARBK-s&euml; duke b&euml;r&euml; scraping.*')}}
+    </p>
+    <p>{{_('Qasja e limituar n&euml; t&euml; dh&euml;nat e kompanive &euml;sht&euml; problem p&euml;r t&euml; gjith&euml;. Informatat e mbyllura t&euml; bizneseve krijojn&euml; hap&euml;sir&euml; p&euml;r pastrim parash, korrupsion, keqp&euml;rdorim dhe krim t&euml; organizuar. K&euml;to probleme e ndalojn&euml; zhvillimin ekonomik lokalisht si dhe n&euml; shkall&euml; globale. Pse duhet t&euml; jen&euml; t&euml; hapura k&euml;to t&euml; dh&euml;na:')}}
+    </p>
+    <ul class="recPage">
+        <li>
+            {{_('Hapja e t&euml; dh&euml;nave biznesore lejon analiza ekonomike p&euml;r sektor&euml; si dhe aktivitete t&euml; ndryshme ekonomike.')}}
+        </li>
+        <li>
+            {{_('Krijon hap&euml;sir&euml; p&euml;r analizimin e trendeve ekonomike n&euml; periudha dhe rajone t&euml; ndryshme.')}}
+        </li>
+        <li>
+            {{_('Krijon hap&euml;sir&euml; p&euml;r analiz&euml; t&euml; tregut nga investitor&euml;t lokal dhe nd&euml;rkomb&euml;tar.')}}
+        </li>
+        <li>
+            {{_('Duke i pasur k&euml;to t&euml; dh&euml;na n&euml; dispozicion gjithashtu do t&euml; kontriboj&euml; n&euml;  t&euml;rheqjen e investitor&euml;ve t&euml; huaj t&euml; cil&euml;t do t&euml; b&euml;nin investime t&euml; bazuara n&euml; t&euml; dh&euml;nat e bizneseve dhe n&euml; d&euml;shmi statistikore.')}}
+        </li>
+        <li>
+            {{_('Hapja e t&euml; dh&euml;nave mund t&euml; p&euml;rdoret edhe si nj&euml; mjet marketingu p&euml;r bizneset. Kjo lejon kompanit&euml; e m&euml;dha nga bota apo kontraktor&euml;t e tjer&euml; t&euml; k&euml;rkojn&euml; kompanin&euml; tuaj bazuar n&euml;: sektorin e kompanis&euml;, madh&euml;sin&euml;, vendndodhjen, p&euml;rvoj&euml;n, pron&euml;sin&euml; etj.')}}
+        </li>
+        <li>
+            {{_('Hapja e k&euml;tyre t&euml; dh&euml;nave biznesore do t&euml; mund&euml;sonte lidhjen e t&euml; dh&euml;nave me sektor&euml; tjer&euml; si prokurimi publik ose me deklarimin e pasuris&euml; gj&euml; q&euml; do t&euml; fuqizonte mekanizmat kund&euml;r korrupsionit.')}}
+        </li>
+        <li>
+            {{_('Hapja e t&euml; dh&euml;nave biznesore do t&euml; ndikonte direkt n&euml; rritjen e vet&euml;dijes s&euml; nd&euml;rmarr&euml;sve dhe t&euml; qytetar&euml;ve q&euml; t&euml; marrin vendime t&euml; bazuara n&euml; analiza faktike t&euml; t&euml; dh&euml;nave.')}}
+        </li>
+    </ul>
+    <p>{{_('Duke ndjekur k&euml;to principe Agjencia e Regjistrimit t&euml; Bizneseve (ARBK) duhet t&euml; p&euml;rmir&euml;soj&euml; dhe thjesht&euml;zoj&euml; qasjen n&euml; informatat biznesore n&euml; Kosov&euml;.')}}
+    </p>
+    <p>{{_('Disa prej rekomandimeve n&euml; baz&euml; t&euml; t&euml; cilave do t&euml; duhej ARBK t&euml; b&euml;j&euml; hapjen e t&euml; dh&euml;nave jan&euml; si vijojn&euml;:')}}
+    </p>
+    <ol class="recPage" style="list-style-type: decimal;">
+        <li>
+            {{_('T&euml; dh&euml;nat e bizneseve, duke p&euml;rjashtuar t&euml; dh&euml;nat sensitive personale, duhet t&euml; jen&euml; publikisht t&euml; qasshme pa pages&euml;.')}}
+        </li>
+        <li>
+            {{_('T&euml; dh&euml;nat e bizneseve duhet t&euml; jen&euml; t&euml; p&euml;rdit&euml;suara dhe t&euml; prezentuara n&euml; koh&euml; reale.')}}
+        </li>
+        <li>
+            {{_('T&euml; gjitha t&euml; dh&euml;nat duhet t&euml; jen&euml; t&euml; k&euml;rkueshme. P&euml;r shembull, jo vet&euml;m nga emri i biznesit ose numri i regjistrimit, por edhe nga emrat e pronar&euml;ve dhe personave t&euml; autorizuar.')}}
+        </li>
+        <li>
+            {{_('Emri i pronar&euml;ve dhe njer&euml;zve t&euml; autorizuar duhet t&euml; jet&euml; i sh&euml;nuar n&euml; t&euml; dh&euml;nat e hapura dhe t&euml; mos konsiderohet si informat&euml; personale. Kjo &euml;sht&euml; e r&euml;nd&euml;sishme pasi q&euml; lejon t&euml; shohim nd&euml;rlidhjen me personat e ekspozuar politikisht (PEP).')}}
+        </li>
+        <li>
+            {{_('T&euml; dh&euml;nat duhet t&euml; mund&euml;sojn&euml; gjinin&euml; e personave q&euml; kan&euml; biznese. Kjo do t&euml; lejoj&euml; q&euml; politik&euml;-b&euml;r&euml;sit t&euml; b&euml;jn&euml; nd&euml;rhyrje p&euml;r t&euml; promovuar barazin&euml; gjinore n&euml; sektorin e zhvillimit t&euml; biznesit dhe sip&euml;rmarrjes.')}}
+        </li>
+        <li>
+            {{_('T&euml; dh&euml;nat e publikuara p&euml;r biznese duhet t&euml; jen&euml; t&euml; p&euml;rdit&euml;suara duke p&euml;rfshir&euml; dat&euml;n e shuarjes s&euml; bizneseve, n&euml; m&euml;nyr&euml; q&euml; t&euml; kemi nj&euml; analiz&euml; se n&euml; cfar&euml; periudhe shuhen k&euml;to biznese.')}}
+        </li>
+        <li>
+            {{_('Për të qenë të përdorueshme nga publiku të dhënat duhet të jenë të publikuara në format të hapur, që lexohen lehtë nga programet softuerike p.sh. CSV dhe JSON.')}}
+        </li>
+        <li>
+            {{_('T&euml; dh&euml;nat duhet t&euml; lejojn&euml; mund&euml;si q&euml; t&euml; shkarkohen n&euml; t&euml;r&euml;si, si dhe n&euml;n licens&euml; t&euml; hapur q&euml; lejon p&euml;rdorimin dhe ri-p&euml;rdorimin nga publiku i gjer&euml;. Psh, nj&euml; shembull i licens&euml;s s&euml; hapur &euml;sht&euml;:')}}
+            <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" target="_blank">CC0 Creative
+                Commons</a>.
+        </li>
+        <li>
+            {{_('T&euml; dh&euml;nat duhet t&euml; formatohen, ruhen dhe vihen n&euml; dispozicion duke p&euml;rdorur standardet nd&euml;rkomb&euml;tare t&euml; t&euml; dh&euml;nave. N&euml; k&euml;t&euml; rast &euml;sht&euml; standardi i t&euml; dh&euml;nave t&euml; bizneseve')}}
+            <a href="https://transparencee.org/analysis/data-standard-for-company-registers-open-corporates/"
+                target="_blank">OpenCorporates</a>.
+        </li>
+    </ol>
+    <p>{{_('Open Data Kosovo &euml;sht&euml; e gatshme p&euml;r bashk&euml;punim n&euml; implementimin e principeve t&euml; t&euml; dh&euml;nave t&euml; hapura, p&euml;r t’i ndihmuar institucionet q&euml; t&euml; arrijn&euml; nivelin m&euml; t&euml; lart&euml; t&euml; transparenc&euml;s, q&euml; kontribon n&euml; t&euml; mir&euml;n e t&euml; gjith&euml; vendit. Ne jemi gjithashtu t&euml; hapur t&euml; bashk&euml;punojm&euml; me partner&euml; tjer&euml; n&euml; zgjerimin e m&euml;tutjesh&euml;m t&euml; k&euml;tij projekti.')}}
+    </p>
+    <br>
+    <p>{{_('Lexoni m&euml; shume p&euml;r l&euml;min&euml; e t&euml; dh&euml;nave t&euml; hapura:')}} </p>
+    <a target="_blank" href="https://www.opengovpartnership.org">
+        <h4>Open Government Partnership</h4>
+    </a>
+    <div class="recommendation-links">
+        <span>
+            {{_('OGP - Partneriteti i Qeveris&euml; s&euml; Hapur &euml;sht&euml; nj&euml; nism&euml; shum&euml;pal&euml;she q&euml; synon t&euml; siguroj&euml; angazhime konkrete nga qeverit&euml; p&euml;r t&euml; nxitur transparenc&euml;n, p&euml;r t&euml; fuqizuar qytetar&euml;t, p&euml;r t&euml; luftuar korrupsionin dhe p&euml;r t&euml; shfryt&euml;zuar teknologjit&euml; e reja p&euml;r t&euml; forcuar qeverisjen. P&euml;r tu b&euml;r&euml; nj&euml; an&euml;tar i OGP, vendet pjes&euml;marr&euml;se duhet t&euml; miratojn&euml; nj&euml; Deklarat&euml; t&euml; Lart&euml; t&euml; Qeveris&euml; s&euml; Hapur, t&euml; hartojn&euml; nj&euml; plan veprimi t&euml; zhvilluar me konsultim publik dhe t&euml; angazhohen p&euml;r raportim t&euml; pavarur p&euml;r ecurin&euml; e planit. Deri tani 75 vende t&euml; bot&euml;s jan&euml; pjes&euml; e OGP-s&euml;.')}}
+        </span>
+    </div>
+    <br>
+    <a target="_blank" href="https://okfn.org">
+        <h4>{{_('Open Knowledge International')}}</h4>
+    </a>
+    <div class="recommendation-links">
+        <span>
+            {{_('Open Knowledge International &euml;sht&euml; nj&euml; organizat&euml; globale jofitimprur&euml;se e fokusuar n&euml; realizimin e vler&euml;s s&euml; t&euml; dh&euml;nave t&euml; hapura p&euml;r shoq&euml;rin&euml;, duke ndihmuar grupet e shoq&euml;ris&euml; civile q&euml; t&euml; ken&euml; qasje dhe t&euml; p&euml;rdorin t&euml; dh&euml;na p&euml;r t&euml; zgjidhur problemet sociale.')}}
+        </span>
+    </div>
+    <br>
+    <a target="_blank" href="https://opencorporates.com">
+        <h4>OpenCorporates</h4>
+    </a>
+    <div class="recommendation-links">
+        <span>
+            {{_('OpenCorporates &euml;sht&euml; databaza m&euml; e madhe e t&euml; dh&euml;nave t&euml; hapura t&euml; kompanive n&euml; bot&euml;, me m&euml; shum&euml; se 100 milion&euml; kompani nga e gjith&euml; bota. Q&euml;llimi primar &euml;sht&euml; q&euml; t&euml; b&euml;jm&euml; informata m&euml; t&euml; p&euml;rdorshme p&euml;r p&euml;rfitimet publike, ve&ccedil;an&euml;risht p&euml;r t&euml; trajtuar p&euml;rdorimin e kompanive p&euml;r q&euml;llime kriminale ose anti-sociale, si p&euml;r shembull korrupsioni, pastrimin e parave dhe krimin e organizuar.')}}
+        </span>
+    </div>
+    <hr>
+    <p><span>{{_('* Web Scraping &euml;sht&euml; nj&euml; teknik&euml; e p&euml;rdorur p&euml;r nxjerrjen automatike dhe n&euml; t&euml;r&euml;si t&euml; sasive t&euml; m&euml;dha t&euml; t&euml; dh&euml;nave nga faqet e internetit.')}}</span>
+    </p>
+</section>
+
+<section id="whyPage" style="display: none;">
+
+</section>
+
+<script>
+    $('#aboutButton, #whyButton').on('click', function () {
+        if ($(this).attr('id') == 'whyButton') {
+            $('#recommendationPage').hide();
+            $('#whyPage').show();
+        } else {
+            $('#recommendationPage').show();
+            $('#whyPage').hide();
+        }
+    })
+</script>
+{%endblock%}

@@ -1,0 +1,1669 @@
+# Albanian translations for PROJECT.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-03-22 15:54+0100\n"
+"PO-Revision-Date: 2017-07-27 14:06+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: sq\n"
+"Language-Team: sq <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: app/__init__.py:91
+msgid "Super Administrator"
+msgstr ""
+
+#: app/__init__.py:93
+msgid "Administrator"
+msgstr ""
+
+#: app/__init__.py:95
+msgid "Autor"
+msgstr ""
+
+#: app/__init__.py:101
+msgid "Pa publikuar"
+msgstr ""
+
+#: app/__init__.py:103
+msgid "Publikuar"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:19
+#: app/admin/forms.py:8 app/admin/templates/admin/admin_profile.html:18
+msgid "Email adresa"
+msgstr ""
+
+#: app/admin/forms.py:8
+msgid "Email adresa eshte e nevojshme"
+msgstr ""
+
+#: app/admin/forms.py:9
+msgid "Fjalekalimi"
+msgstr ""
+
+#: app/admin/forms.py:9
+msgid "Fjalekalimi eshte i nevojshem"
+msgstr ""
+
+#: app/admin/forms.py:10
+msgid "Kycu"
+msgstr ""
+
+#: app/admin/views.py:40
+msgid "Ky perdorues nuk ekziston ose fjalekalimi eshte i gabuar"
+msgstr ""
+
+#: app/admin/authors/views.py:51
+msgid "Autori u shtua me sukses"
+msgstr ""
+
+#: app/admin/authors/views.py:54 app/admin/authors/views.py:101
+msgid "Email adresa ekziston!"
+msgstr ""
+
+#: app/admin/authors/views.py:69 app/admin/authors/views.py:83
+msgid "Autori nuk ekziston!"
+msgstr ""
+
+#: app/admin/authors/views.py:98
+msgid "Autori u ndryshua me sukses"
+msgstr ""
+
+#: app/admin/authors/views.py:114
+msgid "Autori nuk ekziston"
+msgstr ""
+
+#: app/admin/authors/views.py:119
+msgid "Autori nuk u fshi"
+msgstr ""
+
+#: app/admin/authors/views.py:122
+msgid "Autori u fshi me sukses"
+msgstr ""
+
+#: app/admin/authors/templates/authors/add_author.html:5
+msgid "Shto nje autor"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:5
+#: app/admin/templates/admin/admin_dashboard.html:42
+#: app/admin/templates/admin/admin_navigation.html:60
+msgid "Autoret"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:17
+#: app/admin/templates/admin/admin_profile.html:7
+msgid "Emri"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:18
+#: app/admin/templates/admin/admin_profile.html:12
+msgid "Mbiemri"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:20
+msgid "Roli"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:21
+#: app/admin/posts/templates/posts/view_post.html:67
+msgid "Ndrysho"
+msgstr ""
+
+#: app/admin/authors/templates/authors/authors_list.html:22
+#: app/admin/authors/templates/authors/delete_author.html:15
+#: app/admin/posts/templates/posts/add_post.html:21
+#: app/admin/posts/templates/posts/delete_post.html:17
+#: app/admin/posts/templates/posts/edit_post.html:20
+#: app/admin/posts/templates/posts/view_post.html:71
+msgid "Fshij"
+msgstr ""
+
+#: app/admin/authors/templates/authors/delete_author.html:5
+msgid "Fshij autorin"
+msgstr ""
+
+#: app/admin/authors/templates/authors/delete_author.html:13
+#: app/admin/posts/templates/posts/delete_post.html:15
+msgid "A jeni i sigurt?"
+msgstr ""
+
+#: app/admin/authors/templates/authors/delete_author.html:16
+#: app/admin/posts/templates/posts/delete_post.html:18
+msgid ""
+"Jo,\n"
+"                    mos e fshij"
+msgstr ""
+
+#: app/admin/authors/templates/authors/edit_author.html:5
+msgid "Ndrysho autorin"
+msgstr ""
+
+#: app/admin/posts/views.py:37 app/admin/posts/views.py:90
+msgid "Titulli duhet te jete se paku 10 karaktere (per te dy gjuhet)"
+msgstr ""
+
+#: app/admin/posts/views.py:41 app/admin/posts/views.py:94
+msgid "Permbajtja duhet te jete se paku 20 (per te dy gjuhet)"
+msgstr ""
+
+#: app/admin/posts/views.py:51
+msgid "Postimi u shtua me sukses"
+msgstr ""
+
+#: app/admin/posts/views.py:54
+msgid "Postimi nuk u shtua me sukses"
+msgstr ""
+
+#: app/admin/posts/views.py:68 app/admin/posts/views.py:78
+#: app/admin/posts/views.py:126 app/admin/posts/views.py:144
+msgid "Postimi nuk ekziston"
+msgstr ""
+
+#: app/admin/posts/views.py:104 app/admin/posts/views.py:152
+msgid "Postimi u perditesua me sukses"
+msgstr ""
+
+#: app/admin/posts/views.py:108
+msgid "Postimi nuk u perditesua me sukses"
+msgstr ""
+
+#: app/admin/posts/views.py:131
+msgid "Postimi nuk u fshi"
+msgstr ""
+
+#: app/admin/posts/views.py:134
+msgid "Postimi u fshi me sukses"
+msgstr ""
+
+#: app/admin/posts/views.py:149
+msgid "Postimi nuk u perditesua"
+msgstr ""
+
+#: app/admin/posts/templates/posts/add_post.html:7
+msgid "Shto nje postim"
+msgstr ""
+
+#: app/admin/posts/templates/posts/delete_post.html:5
+msgid "Fshij postimin"
+msgstr ""
+
+#: app/admin/posts/templates/posts/edit_post.html:5
+msgid "Ndrysho postimin"
+msgstr ""
+
+#: app/admin/posts/templates/posts/posts_list.html:5
+#: app/admin/templates/admin/admin_dashboard.html:20
+#: app/admin/templates/admin/admin_navigation.html:46
+msgid "Postimet"
+msgstr ""
+
+#: app/admin/posts/templates/posts/posts_list.html:17
+msgid "Titulli AL"
+msgstr ""
+
+#: app/admin/posts/templates/posts/posts_list.html:18
+msgid "Title EN"
+msgstr ""
+
+#: app/admin/posts/templates/posts/posts_list.html:19
+#: app/admin/posts/templates/posts/view_post.html:51
+msgid "Statusi"
+msgstr ""
+
+#: app/admin/posts/templates/posts/posts_list.html:20
+#: app/templates/layout.html:241
+msgid "Shiko"
+msgstr ""
+
+#: app/admin/posts/templates/posts/view_post.html:7
+msgid "Fotoja kryesore"
+msgstr ""
+
+#: app/admin/posts/templates/posts/view_post.html:14
+#: app/admin/templates/admin/admin_navigation.html:75
+msgid "Shqip"
+msgstr ""
+
+#: app/admin/posts/templates/posts/view_post.html:30
+#: app/admin/templates/admin/admin_navigation.html:80
+msgid "English"
+msgstr ""
+
+#: app/admin/posts/templates/posts/view_post.html:49
+msgid "Autori"
+msgstr ""
+
+#: app/admin/posts/templates/posts/view_post.html:57
+msgid "Publiko"
+msgstr ""
+
+#: app/admin/posts/templates/posts/view_post.html:62
+msgid "Mos e publiko"
+msgstr ""
+
+#: app/admin/templates/admin/admin_dashboard.html:5
+#: app/admin/templates/admin/admin_navigation.html:43
+msgid "Paneli"
+msgstr ""
+
+#: app/admin/templates/admin/admin_header.html:12
+msgid "Bizneset e hapura - Paneli"
+msgstr ""
+
+#: app/admin/templates/admin/admin_navigation.html:10
+msgid ""
+"Paneli i\n"
+"            administratorit"
+msgstr ""
+
+#: app/admin/templates/admin/admin_navigation.html:22
+#: app/admin/templates/admin/admin_profile.html:5
+msgid "Profili"
+msgstr ""
+
+#: app/admin/templates/admin/admin_navigation.html:28
+msgid "Dil"
+msgstr ""
+
+#: app/admin/templates/admin/admin_navigation.html:49
+#: app/admin/templates/admin/admin_navigation.html:63
+msgid "Shto"
+msgstr ""
+
+#: app/admin/templates/admin/admin_navigation.html:52
+msgid "Te gjitha"
+msgstr ""
+
+#: app/admin/templates/admin/admin_navigation.html:66
+msgid "Te gjithe"
+msgstr ""
+
+#: app/templates/activity-map.html:18
+msgid "Ndarja n&euml; baz&euml; t&euml; aktiviteteve biznesore:"
+msgstr ""
+
+#: app/templates/activity-map.html:22
+msgid "Njoftim"
+msgstr ""
+
+#: app/templates/activity-map.html:23
+msgid ""
+"Klikoni mbi çdo qytet që t'i shihni të gjitha bizneset sipas kritereve të"
+" zgjedhura më poshtë"
+msgstr ""
+
+#: app/templates/activity-map.html:29
+#: app/templates/visualizations/activityAvgCapitalYears.html:2
+#: app/templates/visualizations/activityEmployment.html:2
+#: app/templates/visualizations/activityYears.html:2
+#: app/templates/visualizations/businessesYears.html:11
+#: app/templates/visualizations/employeesNum.html:4
+msgid "Aktiviteti:"
+msgstr ""
+
+#: app/templates/activity-map.html:36
+#: app/templates/visualizations/activityAvgCapitalYears.html:7
+#: app/templates/visualizations/activityEmployment.html:7
+#: app/templates/visualizations/activityYears.html:7
+#: app/templates/visualizations/businessesYears.html:18
+#: app/templates/visualizations/employeesNum.html:9
+msgid "K&euml;rko aktivitetin..."
+msgstr ""
+
+#: app/templates/activity-map.html:40 app/templates/activity-map.html:66
+#: app/templates/activity-map.html:80 app/templates/layout.html:179
+#: app/templates/layout.html:196
+#: app/templates/visualizations/activityYears.html:27
+#: app/templates/visualizations/bizTypes.html:7
+#: app/templates/visualizations/bizTypes.html:18
+#: app/templates/visualizations/bizTypes.html:30
+#: app/templates/visualizations/businessesYears.html:23
+#: app/templates/visualizations/businessesYears.html:44
+#: app/templates/visualizations/employeesNum.html:11
+#: app/templates/visualizations/employeesNum.html:29
+#: app/templates/visualizations/gender.html:6
+#: app/templates/visualizations/gender.html:17
+#: app/templates/visualizations/muni-select.html:2
+#: app/templates/visualizations/top10.html:7
+#: app/templates/visualizations/top10.html:17
+#: app/templates/visualizations/top10.html:28
+#: app/templates/visualizations/topActivities.html:6
+#: app/templates/visualizations/topActivities.html:16
+#: app/templates/visualizations/topActivities.html:27
+msgid "T&euml; gjitha"
+msgstr ""
+
+#: app/templates/activity-map.html:56
+msgid "Statusi i bizneseve:"
+msgstr ""
+
+#: app/templates/activity-map.html:64 app/templates/layout.html:198
+#: app/templates/visualizations/bizTypes.html:8
+#: app/templates/visualizations/gender.html:7
+#: app/templates/visualizations/top10.html:8
+#: app/templates/visualizations/topActivities.html:7
+msgid "Aktiv"
+msgstr ""
+
+#: app/templates/activity-map.html:65 app/templates/layout.html:199
+#: app/templates/visualizations/bizTypes.html:9
+#: app/templates/visualizations/gender.html:8
+#: app/templates/visualizations/top10.html:9
+#: app/templates/visualizations/topActivities.html:8
+msgid "I shuar"
+msgstr ""
+
+#: app/templates/activity-map.html:71
+#: app/templates/visualizations/activityYears.html:21
+#: app/templates/visualizations/bizTypes.html:27
+#: app/templates/visualizations/businessesYears.html:41
+#: app/templates/visualizations/top10.html:25
+#: app/templates/visualizations/topActivities.html:24
+msgid "Gjinia e pronarit:"
+msgstr ""
+
+#: app/templates/activity-map.html:82
+#: app/templates/visualizations/activityYears.html:28
+#: app/templates/visualizations/bizTypes.html:31
+#: app/templates/visualizations/businessesYears.html:45
+#: app/templates/visualizations/top10.html:29
+#: app/templates/visualizations/topActivities.html:28
+msgid "Fem&euml;r"
+msgstr ""
+
+#: app/templates/activity-map.html:83
+#: app/templates/visualizations/activityYears.html:29
+#: app/templates/visualizations/bizTypes.html:32
+#: app/templates/visualizations/businessesYears.html:46
+#: app/templates/visualizations/top10.html:30
+#: app/templates/visualizations/topActivities.html:29
+msgid "Mashkull"
+msgstr ""
+
+#: app/templates/activity-map.html:84
+#: app/templates/visualizations/activityYears.html:30
+#: app/templates/visualizations/bizTypes.html:33
+#: app/templates/visualizations/businessesYears.html:47
+#: app/templates/visualizations/top10.html:31
+#: app/templates/visualizations/topActivities.html:30
+msgid "Panjohur"
+msgstr ""
+
+#: app/templates/activity-map.html:100
+msgid "Komuna e zgjedhur"
+msgstr ""
+
+#: app/templates/activity-map.html:101 app/templates/layout.html:314
+msgid "Rezultatet:"
+msgstr ""
+
+#: app/templates/activity-map.html:105 app/templates/index.html:18
+#: app/templates/profile.html:33 app/templates/visualizations/top10.html:42
+msgid "Emri i Biznesit"
+msgstr ""
+
+#: app/templates/activity-map.html:106 app/templates/index.html:19
+#: app/templates/profile.html:34 app/templates/visualizations/top10.html:44
+msgid "Statusi i Biznesit"
+msgstr ""
+
+#: app/templates/activity-map.html:107
+msgid "Vendi"
+msgstr ""
+
+#: app/templates/activity-map.html:108 app/templates/index.html:21
+#: app/templates/profile.html:36
+msgid "Pronar&euml;t"
+msgstr ""
+
+#: app/templates/activity-map.html:109 app/templates/index.html:22
+#: app/templates/profile.html:37
+msgid "Personat e autorizuar"
+msgstr ""
+
+#: app/templates/activity-map.html:118
+msgid ""
+"Njoftim! N&euml; hart&euml; shfaqen vet&euml;m 30 komuna nga 38 komuna "
+"gjithsejt. Kjo ndodh&euml; p&euml;r shkak se ende nuk jan&euml; "
+"p&euml;rdit&euml;suar komunat e krijuara s&euml; fundmi ne gjeo-portalin "
+"shtet&euml;ror. Komunat q&euml; mungojn&euml; jan&euml; t&euml; bashkuara"
+" me komun&euml;n t&euml; cil&euml;s i kan&euml; takuar m&euml; par&euml;."
+msgstr ""
+
+#: app/templates/activity-map.html:125
+msgid ""
+"T&euml; dh&euml;nat e regjistrimeve t&euml; bizneseve q&euml; jan&euml; "
+"t&euml; disponueshme n&euml; platform&euml; jan&euml; marr&euml; nga ARBK"
+" n&euml; datat 11-03-2019 dhe 19-03-2019. Çdo p&euml;rdit&euml;sim mbi "
+"t&euml; dh&euml;nat e b&euml;ra nga ARBK pas k&euml;saj periudhe nuk "
+"&euml;sht&euml; e  pasqyruar n&euml; k&euml;to t&euml; dh&euml;na."
+msgstr ""
+
+#: app/templates/blog.html:23
+msgid "Lexo me shume"
+msgstr ""
+
+#: app/templates/blog.html:32
+msgid ""
+"Read\n"
+"                                more"
+msgstr ""
+
+#: app/templates/blog.html:46
+msgid "Nuk ka postime"
+msgstr ""
+
+#: app/templates/downloads.html:6
+msgid ""
+"Njoftim! T&euml; dh&euml;nat p&euml;r bizneset e regjistruara n&euml; "
+"vitin 2019 jan&euml; t&euml; pakompletuara. T&euml; dh&euml;nat e fundit "
+"q&euml; jan&euml; nxjerr&euml; jan&euml; deri me dat&euml;"
+msgstr ""
+
+#: app/templates/downloads.html:11
+msgid "Shkarkoni dokumentet sipas viteve"
+msgstr ""
+
+#: app/templates/downloads.html:21
+msgid "Data e regjistrimit"
+msgstr ""
+
+#: app/templates/downloads.html:29 app/templates/layout.html:111
+msgid "Shkarko"
+msgstr ""
+
+#: app/templates/downloads.html:34
+msgid "Shkarkoni t&euml; gjitha bizneset"
+msgstr ""
+
+#: app/templates/downloads.html:43
+msgid "Shkarko zip"
+msgstr ""
+
+#: app/templates/index.html:7 app/templates/index.html:9
+#: app/templates/profile.html:23 app/templates/profile.html:25
+msgid "T&euml; shfaqura"
+msgstr ""
+
+#: app/templates/index.html:7 app/templates/index.html:10
+#: app/templates/profile.html:23 app/templates/profile.html:25
+msgid "dokumente"
+msgstr ""
+
+#: app/templates/index.html:9 app/templates/index.html:58
+#: app/templates/profile.html:25 app/templates/profile.html:71
+#: app/templates/visualizations.html:25
+msgid "nga"
+msgstr ""
+
+#: app/templates/index.html:20 app/templates/profile.html:35
+#: app/templates/visualizations/top10.html:43
+msgid "Komuna"
+msgstr ""
+
+#: app/templates/index.html:49 app/templates/profile.html:62
+msgid "Nuk u gjet ansj&euml; dokument!"
+msgstr ""
+
+#: app/templates/index.html:58 app/templates/profile.html:71
+msgid "Faqe"
+msgstr ""
+
+#: app/templates/index.html:67
+msgid "T&euml; Dh&euml;nat Gjysmake"
+msgstr ""
+
+#: app/templates/index.html:70
+msgid ""
+"<b class=\"missing-header\">81 397</b> biznese nuk kan&euml;\n"
+"                    t&euml; paraqitur numrin fiskal, <b>70 296</b> prej "
+"tyre jan&euml; ende aktive"
+msgstr ""
+
+#: app/templates/index.html:76
+msgid ""
+"<b class=\"missing-header\">7 686</b> biznese nuk kan&euml;\n"
+"                    t&euml; paraqitur aktivitetet e tyre, <b>753</b> prej"
+" tyre jan&euml; ende aktive"
+msgstr ""
+
+#: app/templates/index.html:84
+msgid ""
+"<b class=\"missing-header\">6 957</b> biznese nuk kan&euml;\n"
+"                    dat&euml; t&euml; regjistrimit dhe <b>4</b> prej tyre"
+" jan&euml; ende aktive"
+msgstr ""
+
+#: app/templates/index.html:89
+msgid ""
+"<b class=\"missing-header\">537</b> biznese nuk kan&euml;\n"
+"                    t&euml; paraqitur emrin e pronar&euml;ve, <b>458</b> "
+"prej tyre jan&euml; ende\n"
+"                    aktive"
+msgstr ""
+
+#: app/templates/index.html:182 app/templates/profile.html:98
+msgid "E para"
+msgstr ""
+
+#: app/templates/index.html:183 app/templates/profile.html:99
+msgid "Prapa"
+msgstr ""
+
+#: app/templates/index.html:184 app/templates/profile.html:100
+msgid "Përpara"
+msgstr ""
+
+#: app/templates/index.html:185 app/templates/profile.html:101
+msgid "E fundit"
+msgstr ""
+
+#: app/templates/layout.html:8
+msgid "Rekomandimet - Bizneset e Hapura"
+msgstr ""
+
+#: app/templates/layout.html:10 app/templates/layout.html:18
+#: app/templates/layout.html:25 app/templates/layout.html:27
+#: app/templates/layout.html:33 app/templates/layout.html:86
+#: app/templates/single-post.html:5 app/templates/single-post.html:11
+#: app/templates/single-post.html:13 app/templates/single-post.html:18
+msgid "Bizneset e Hapura"
+msgstr ""
+
+#: app/templates/layout.html:12
+msgid "Zhvillimi i Bizneseve - Bizneset e Hapura"
+msgstr ""
+
+#: app/templates/layout.html:14
+msgid "Harta - Bizneset e Hapura"
+msgstr ""
+
+#: app/templates/layout.html:16
+msgid "Shkarko - Bizneset e Hapura"
+msgstr ""
+
+#: app/templates/layout.html:29 app/templates/layout.html:35
+msgid ""
+"K&euml;tu mund t&euml; gjeni t&euml; dh&euml;na t&euml; hapura p&euml;r "
+"t&euml; gjith&euml; bizneset e regjistruara ne Kosov&euml; n&euml; "
+"periudh&euml;n 2000 - 2019."
+msgstr ""
+
+#: app/templates/layout.html:92
+msgid ""
+"P&euml;r\n"
+"                                Bizneset e Hapura?"
+msgstr ""
+
+#: app/templates/layout.html:96
+msgid "K&euml;rkimi"
+msgstr ""
+
+#: app/templates/layout.html:100
+msgid ""
+"Vizualizimi\n"
+"                                i t&euml; dh&euml;nave "
+msgstr ""
+
+#: app/templates/layout.html:104 app/templates/layout.html:271
+msgid "Harta"
+msgstr ""
+
+#: app/templates/layout.html:106
+msgid "Blog"
+msgstr ""
+
+#: app/templates/layout.html:107
+msgid ""
+"T&euml; Dh&euml;nat\n"
+"                                Gjysmake"
+msgstr ""
+
+#: app/templates/layout.html:141
+msgid ""
+"K&euml;rko biznese, pronar&euml;, apo persona t&euml;\n"
+"                                    autorizuar p&euml;r kompanit&euml; e "
+"regjistruara n&euml; Kosov&euml;"
+msgstr ""
+
+#: app/templates/layout.html:147
+msgid "biznese n&euml; databas&euml;n ton&euml;"
+msgstr ""
+
+#: app/templates/layout.html:151
+msgid "biznese aktive"
+msgstr ""
+
+#: app/templates/layout.html:155
+msgid "biznese joaktive"
+msgstr ""
+
+#: app/templates/layout.html:160
+msgid ""
+"K&euml;rko p&euml;rmes nj&euml; apo m&euml; shum&euml; kritereve t&euml;\n"
+"                                m&euml;poshtme:"
+msgstr ""
+
+#: app/templates/layout.html:170
+msgid "K&euml;rko personin:"
+msgstr ""
+
+#: app/templates/layout.html:173
+msgid "Sh&euml;no emrin e personit"
+msgstr ""
+
+#: app/templates/layout.html:176
+msgid "Statusi i personit:"
+msgstr ""
+
+#: app/templates/layout.html:180
+msgid "Pronar"
+msgstr ""
+
+#: app/templates/layout.html:181
+msgid "Person i Autorizuar"
+msgstr ""
+
+#: app/templates/layout.html:187
+msgid "K&euml;rko biznesin:"
+msgstr ""
+
+#: app/templates/layout.html:190
+msgid "Sh&euml;no emrin e biznesit"
+msgstr ""
+
+#: app/templates/layout.html:193
+msgid "Statusi i biznesit:"
+msgstr ""
+
+#: app/templates/layout.html:207
+msgid "Zgjedh komun&euml;n:"
+msgstr ""
+
+#: app/templates/layout.html:210
+msgid "Gjith&euml; Kosova"
+msgstr ""
+
+#: app/templates/layout.html:221
+msgid "K&euml;rko"
+msgstr ""
+
+#: app/templates/layout.html:230
+msgid "Zbuloni Gjendjen e Bizneseve n&euml; Kosov&euml;"
+msgstr ""
+
+#: app/templates/layout.html:232
+msgid ""
+"K&euml;tu mund t&euml; gjeni forma t&euml; ndryshme t&euml;\n"
+"                                visualizimeve q&euml; tregojn&euml; "
+"gjendjen e bizneseve n&euml; Kosov&euml;."
+msgstr ""
+
+#: app/templates/layout.html:234
+msgid ""
+"Zbuloni se cil&euml;t jan&euml; top dhjet&euml; bizneset me kapital\n"
+"                                m&euml; t&euml; madh. M&euml;soni "
+"&ccedil;far&euml; industri apo aktivitete biznesore\n"
+"                                operojn&euml; m&euml; s&euml; shumti "
+"n&euml; qytetin tuaj. Ndani sipas gjinis&euml;,\n"
+"                                viteve, apo llojit t&euml; biznesit."
+msgstr ""
+
+#: app/templates/layout.html:244 app/templates/visualizations.html:6
+msgid "Llojet e Bizneseve"
+msgstr ""
+
+#: app/templates/layout.html:246
+msgid ""
+"Bizneset sipas Numrit t&euml;\n"
+"                                            Pun&euml;tor&euml;ve"
+msgstr ""
+
+#: app/templates/layout.html:248
+msgid ""
+"Bizneset e Shuara dhe\n"
+"                                            Aktive"
+msgstr ""
+
+#: app/templates/layout.html:250 app/templates/visualizations.html:38
+msgid "Bizneset Sipas Viteve"
+msgstr ""
+
+#: app/templates/layout.html:253 app/templates/visualizations.html:47
+msgid "Top 10 Bizneset Sipas Kapitalit"
+msgstr ""
+
+#: app/templates/layout.html:254
+msgid ""
+"Top 10 Aktivitetet\n"
+"                                            q&euml; Sh&euml;rbehen nga "
+"Bizneset"
+msgstr ""
+
+#: app/templates/layout.html:256
+msgid ""
+"Pun&euml;simi n&euml;\n"
+"                                            baz&euml; t&euml; aktiviteteve"
+msgstr ""
+
+#: app/templates/layout.html:258
+msgid ""
+"Top Aktivitetet\n"
+"                                            n&euml; vitet e fundit"
+msgstr ""
+
+#: app/templates/layout.html:260
+msgid ""
+"Kapitali\n"
+"                                            Mesatar I Aktiviteteve "
+"Gjat&euml; Viteve"
+msgstr ""
+
+#: app/templates/layout.html:262 app/templates/visualizations.html:96
+msgid "Gjinia e Pronar&euml;ve"
+msgstr ""
+
+#: app/templates/layout.html:263
+msgid ""
+"Top 10 Aktivitetet\n"
+"                                            Biznesore t&euml; Ndara sipas"
+" Gjinis&euml; s&euml; Pronar&euml;ve"
+msgstr ""
+
+#: app/templates/layout.html:275
+msgid "Shkarkoni Dokumentet"
+msgstr ""
+
+#: app/templates/layout.html:277
+msgid ""
+"T&euml; dh&euml;nat e paraqitura t&euml; bizneseve jan&euml; nxjerr&euml;"
+" nga\n"
+"                                faqja zyrtare e ARBK’s&euml; duke "
+"p&euml;rdorur metod&euml;n e quajtur"
+msgstr ""
+
+#: app/templates/layout.html:279
+msgid ""
+"Kjo teknologji e p&euml;rdorur sh&euml;rben p&euml;r\n"
+"                                nxjerrjen automatike dhe n&euml; "
+"t&euml;r&euml;si t&euml; sasive t&euml; m&euml;dha\n"
+"                                t&euml; t&euml; dh&euml;nave nga faqet e "
+"internetit. K&euml;to t&euml; dh&euml;na\n"
+"                                jan&euml; nxjerr&euml; mes dat&euml;s"
+msgstr ""
+
+#: app/templates/layout.html:283 app/templates/layout.html:372
+msgid "dhe"
+msgstr ""
+
+#: app/templates/layout.html:288
+msgid "P&euml;r Bizneset e Hapura?"
+msgstr ""
+
+#: app/templates/layout.html:292
+msgid "BLOG"
+msgstr ""
+
+#: app/templates/layout.html:299
+msgid "Kthehu tek k&euml;rkimi"
+msgstr ""
+
+#: app/templates/layout.html:332
+msgid "Misioni yn&euml;:"
+msgstr ""
+
+#: app/templates/layout.html:333
+msgid ""
+"Open Data Kosovo beson q&euml; hapja e t&euml; dh&euml;nave "
+"&euml;sht&euml; esenciale\n"
+"                        n&euml; vendosjen e qeverisjes s&euml; mir&euml;,"
+" qeverisjes transparente dhe\n"
+"                        llogaridh&euml;n&euml;se."
+msgstr ""
+
+#: app/templates/layout.html:338
+msgid "Na ndiqni n&euml;:"
+msgstr ""
+
+#: app/templates/layout.html:366
+msgid ""
+"T&euml; dh&euml;nat e paraqitura t&euml; bizneseve jan&euml; nxjerr&euml;"
+" nga faqja zyrtare e\n"
+"                    ARBK’s&euml; duke p&euml;rdorur metod&euml;n e quajtur"
+msgstr ""
+
+#: app/templates/layout.html:368
+msgid ""
+"Kjo teknologji e p&euml;rdorur sh&euml;rben p&euml;r nxjerrjen automatike"
+" dhe n&euml;\n"
+"                    t&euml;r&euml;si t&euml; sasive t&euml; m&euml;dha "
+"t&euml; t&euml; dh&euml;nave nga faqet e\n"
+"                    internetit. K&euml;to t&euml; dh&euml;na jan&euml; "
+"nxjerr&euml; mes dat&euml;s"
+msgstr ""
+
+#: app/templates/layout.html:377
+msgid "Zhvilluar nga"
+msgstr ""
+
+#: app/templates/layout.html:387
+msgid ""
+"T&euml;\n"
+"                        Dh&euml;nat Gjysmake"
+msgstr ""
+
+#: app/templates/layout.html:394
+msgid ""
+"<b class=\"missing-header\">62 022</b> biznese nuk kan&euml;\n"
+"                                t&euml; paraqitur numrin fiskal, <b>52 "
+"022</b> prej tyre jan&euml; ende aktive"
+msgstr ""
+
+#: app/templates/layout.html:400
+msgid ""
+"<b class=\"missing-header\">7 643</b> biznese nuk kan&euml;\n"
+"                                t&euml; paraqitur aktivitetet e tyre, "
+"<b>759</b> prej tyre jan&euml; ende aktive"
+msgstr ""
+
+#: app/templates/layout.html:408
+msgid ""
+"<b class=\"missing-header\">2 269</b> biznese nuk kan&euml;\n"
+"                                dat&euml; t&euml; konstituimit, "
+"<b>543</b> prej tyre jan&euml; ende aktive"
+msgstr ""
+
+#: app/templates/layout.html:413
+msgid ""
+"<b class=\"missing-header\">523</b> biznese nuk kan&euml;\n"
+"                                t&euml; paraqitur emrin e pronar&euml;ve,"
+" <b>464</b> prej tyre jan&euml; ende\n"
+"                                aktive"
+msgstr ""
+
+#: app/templates/layout.html:421
+msgid ""
+"<b class=\"missing-header\">4</b> biznese nuk kan&euml; status\n"
+"                                t&euml; paraqitur"
+msgstr ""
+
+#: app/templates/layout.html:427
+msgid "Mbyll"
+msgstr ""
+
+#: app/templates/profile.html:16
+msgid ""
+"Njoftim! P&euml;r shkaqe sigurie personale numri identifikues i "
+"pronar&euml;ve nuk mund t&euml; shfaqet. Si pasoj&euml;, pronar&euml;t me"
+" em&euml;r dhe mbiem&euml;r t&euml; njejt&euml; paraqiten n&euml; "
+"list&euml; si nj&euml; person i vet&euml;m."
+msgstr ""
+
+#: app/templates/profile.html:19
+msgid "Rezultatet rreth"
+msgstr ""
+
+#: app/templates/recommendationPage.html:5
+msgid "P&euml;r"
+msgstr ""
+
+#: app/templates/recommendationPage.html:6
+msgid "Pse"
+msgstr ""
+
+#: app/templates/recommendationPage.html:9
+msgid ""
+"Open Data Kosovo beson q&euml; hapja e t&euml; dh&euml;nave "
+"&euml;sht&euml; esenciale n&euml; vendosjen e qeverisjes s&euml; "
+"mir&euml;, transparente dhe llogaridh&euml;n&euml;se. T&euml; dh&euml;nat"
+" e hapura jan&euml; m&euml;nyr&euml; fundamentale e pjes&euml;marrjes "
+"qytetare n&euml; vendimarrje. P&euml;r k&euml;t&euml; arsye t&euml; "
+"dh&euml;nat q&euml; ofrohen nga institucionet qeveritare duhet t&euml; "
+"jen&euml; publike, leht&euml;sisht t&euml; qasshme, si dhe n&euml; "
+"formate t&euml; hapura."
+msgstr ""
+
+#: app/templates/recommendationPage.html:10
+msgid ""
+"Me dat&euml; 05-13-2016 Qeveria e Kosov&euml;s miratoi Kart&euml;n "
+"p&euml;r Hapjen e t&euml; Dh&euml;nave n&euml; Republik&euml;n e "
+"Kosov&euml;s. Sipas k&euml;tij dokumenti Republika e Kosov&euml;s ka "
+"marr&euml; zotim t’i p&euml;rshtatet principit t&euml; hapjes s&euml; "
+"dh&euml;nave p&euml;r t&euml; mir&euml;n publike."
+msgstr ""
+
+#: app/templates/recommendationPage.html:10
+msgid "Ligji p&euml;r qasje n&euml; dokumente publike"
+msgstr ""
+
+#: app/templates/recommendationPage.html:10
+msgid ""
+"&euml;sht&euml; n&euml; fuqi dhe garanton qasje t&euml; lir&euml; n&euml;"
+" k&euml;to informata. Sidoqoft&euml;, k&euml;rkes&euml;s ton&euml; "
+"p&euml;r t&euml; pasur qasje n&euml; regjistrin e bizneseve, Agjencia "
+"p&euml;r Regjistrimin e Bizneseve t&euml; Kosov&euml;s, e cila funksionon"
+" n&euml; kuad&euml;r t&euml; Ministris&euml; s&euml; Tregtis&euml; dhe "
+"Industris&euml;, i &euml;sht&euml; p&euml;rgjigjur pozitivisht, por duke "
+"k&euml;rkuar kompensim financiar, edhe p&euml;r kopjet elektronike. Duke "
+"marr parasysh se pagesa p&euml;r qasje n&euml; t&euml; dh&euml;nat "
+"zyrtare bie ndesh me Ligjin p&euml;r qasje n&euml; dokumente publike dhe "
+"me"
+msgstr ""
+
+#: app/templates/recommendationPage.html:10
+msgid ""
+"Rregulloren nr.02/2012 p&euml;r tarifat n&euml; qasje n&euml; dokumente "
+"publike"
+msgstr ""
+
+#: app/templates/recommendationPage.html:10
+msgid ""
+"ODK nuk ka pranuar q&euml; t&euml; b&euml;j nj&euml; pages&euml; t&euml; "
+"till&euml;."
+msgstr ""
+
+#: app/templates/recommendationPage.html:11
+msgid ""
+"P&euml;r k&euml;t&euml; arsye ne jemi t&euml; detyruar t’i "
+"gjenerojm&euml; informatat nga webfaqja e ARBK-s&euml; duke "
+"b&euml;r&euml; scraping.*"
+msgstr ""
+
+#: app/templates/recommendationPage.html:12
+msgid ""
+"Qasja e limituar n&euml; t&euml; dh&euml;nat e kompanive &euml;sht&euml; "
+"problem p&euml;r t&euml; gjith&euml;. Informatat e mbyllura t&euml; "
+"bizneseve krijojn&euml; hap&euml;sir&euml; p&euml;r pastrim parash, "
+"korrupsion, keqp&euml;rdorim dhe krim t&euml; organizuar. K&euml;to "
+"probleme e ndalojn&euml; zhvillimin ekonomik lokalisht si dhe n&euml; "
+"shkall&euml; globale. Pse duhet t&euml; jen&euml; t&euml; hapura "
+"k&euml;to t&euml; dh&euml;na:"
+msgstr ""
+
+#: app/templates/recommendationPage.html:15
+msgid ""
+"Hapja e t&euml; dh&euml;nave biznesore lejon analiza ekonomike p&euml;r "
+"sektor&euml; si dhe aktivitete t&euml; ndryshme ekonomike."
+msgstr ""
+
+#: app/templates/recommendationPage.html:18
+msgid ""
+"Krijon hap&euml;sir&euml; p&euml;r analizimin e trendeve ekonomike "
+"n&euml; periudha dhe rajone t&euml; ndryshme."
+msgstr ""
+
+#: app/templates/recommendationPage.html:21
+msgid ""
+"Krijon hap&euml;sir&euml; p&euml;r analiz&euml; t&euml; tregut nga "
+"investitor&euml;t lokal dhe nd&euml;rkomb&euml;tar."
+msgstr ""
+
+#: app/templates/recommendationPage.html:24
+msgid ""
+"Duke i pasur k&euml;to t&euml; dh&euml;na n&euml; dispozicion gjithashtu "
+"do t&euml; kontriboj&euml; n&euml;  t&euml;rheqjen e investitor&euml;ve "
+"t&euml; huaj t&euml; cil&euml;t do t&euml; b&euml;nin investime t&euml; "
+"bazuara n&euml; t&euml; dh&euml;nat e bizneseve dhe n&euml; d&euml;shmi "
+"statistikore."
+msgstr ""
+
+#: app/templates/recommendationPage.html:27
+msgid ""
+"Hapja e t&euml; dh&euml;nave mund t&euml; p&euml;rdoret edhe si nj&euml; "
+"mjet marketingu p&euml;r bizneset. Kjo lejon kompanit&euml; e m&euml;dha "
+"nga bota apo kontraktor&euml;t e tjer&euml; t&euml; k&euml;rkojn&euml; "
+"kompanin&euml; tuaj bazuar n&euml;: sektorin e kompanis&euml;, "
+"madh&euml;sin&euml;, vendndodhjen, p&euml;rvoj&euml;n, "
+"pron&euml;sin&euml; etj."
+msgstr ""
+
+#: app/templates/recommendationPage.html:30
+msgid ""
+"Hapja e k&euml;tyre t&euml; dh&euml;nave biznesore do t&euml; "
+"mund&euml;sonte lidhjen e t&euml; dh&euml;nave me sektor&euml; tjer&euml;"
+" si prokurimi publik ose me deklarimin e pasuris&euml; gj&euml; q&euml; "
+"do t&euml; fuqizonte mekanizmat kund&euml;r korrupsionit."
+msgstr ""
+
+#: app/templates/recommendationPage.html:33
+msgid ""
+"Hapja e t&euml; dh&euml;nave biznesore do t&euml; ndikonte direkt n&euml;"
+" rritjen e vet&euml;dijes s&euml; nd&euml;rmarr&euml;sve dhe t&euml; "
+"qytetar&euml;ve q&euml; t&euml; marrin vendime t&euml; bazuara n&euml; "
+"analiza faktike t&euml; t&euml; dh&euml;nave."
+msgstr ""
+
+#: app/templates/recommendationPage.html:36
+msgid ""
+"Duke ndjekur k&euml;to principe Agjencia e Regjistrimit t&euml; Bizneseve"
+" (ARBK) duhet t&euml; p&euml;rmir&euml;soj&euml; dhe "
+"thjesht&euml;zoj&euml; qasjen n&euml; informatat biznesore n&euml; "
+"Kosov&euml;."
+msgstr ""
+
+#: app/templates/recommendationPage.html:37
+msgid ""
+"Disa prej rekomandimeve n&euml; baz&euml; t&euml; t&euml; cilave do "
+"t&euml; duhej ARBK t&euml; b&euml;j&euml; hapjen e t&euml; dh&euml;nave "
+"jan&euml; si vijojn&euml;:"
+msgstr ""
+
+#: app/templates/recommendationPage.html:40
+msgid ""
+"T&euml; dh&euml;nat e bizneseve, duke p&euml;rjashtuar t&euml; "
+"dh&euml;nat sensitive personale, duhet t&euml; jen&euml; publikisht "
+"t&euml; qasshme pa pages&euml;."
+msgstr ""
+
+#: app/templates/recommendationPage.html:43
+msgid ""
+"T&euml; dh&euml;nat e bizneseve duhet t&euml; jen&euml; t&euml; "
+"p&euml;rdit&euml;suara dhe t&euml; prezentuara n&euml; koh&euml; reale."
+msgstr ""
+
+#: app/templates/recommendationPage.html:46
+msgid ""
+"T&euml; gjitha t&euml; dh&euml;nat duhet t&euml; jen&euml; t&euml; "
+"k&euml;rkueshme. P&euml;r shembull, jo vet&euml;m nga emri i biznesit ose"
+" numri i regjistrimit, por edhe nga emrat e pronar&euml;ve dhe personave "
+"t&euml; autorizuar."
+msgstr ""
+
+#: app/templates/recommendationPage.html:49
+msgid ""
+"Emri i pronar&euml;ve dhe njer&euml;zve t&euml; autorizuar duhet t&euml; "
+"jet&euml; i sh&euml;nuar n&euml; t&euml; dh&euml;nat e hapura dhe t&euml;"
+" mos konsiderohet si informat&euml; personale. Kjo &euml;sht&euml; e "
+"r&euml;nd&euml;sishme pasi q&euml; lejon t&euml; shohim nd&euml;rlidhjen "
+"me personat e ekspozuar politikisht (PEP)."
+msgstr ""
+
+#: app/templates/recommendationPage.html:52
+msgid ""
+"T&euml; dh&euml;nat duhet t&euml; mund&euml;sojn&euml; gjinin&euml; e "
+"personave q&euml; kan&euml; biznese. Kjo do t&euml; lejoj&euml; q&euml; "
+"politik&euml;-b&euml;r&euml;sit t&euml; b&euml;jn&euml; nd&euml;rhyrje "
+"p&euml;r t&euml; promovuar barazin&euml; gjinore n&euml; sektorin e "
+"zhvillimit t&euml; biznesit dhe sip&euml;rmarrjes."
+msgstr ""
+
+#: app/templates/recommendationPage.html:55
+msgid ""
+"T&euml; dh&euml;nat e publikuara p&euml;r biznese duhet t&euml; jen&euml;"
+" t&euml; p&euml;rdit&euml;suara duke p&euml;rfshir&euml; dat&euml;n e "
+"shuarjes s&euml; bizneseve, n&euml; m&euml;nyr&euml; q&euml; t&euml; kemi"
+" nj&euml; analiz&euml; se n&euml; cfar&euml; periudhe shuhen k&euml;to "
+"biznese."
+msgstr ""
+
+#: app/templates/recommendationPage.html:58
+msgid ""
+"Për të qenë të përdorueshme nga publiku të dhënat duhet të jenë të "
+"publikuara në format të hapur, që lexohen lehtë nga programet softuerike "
+"p.sh. CSV dhe JSON."
+msgstr ""
+
+#: app/templates/recommendationPage.html:61
+msgid ""
+"T&euml; dh&euml;nat duhet t&euml; lejojn&euml; mund&euml;si q&euml; "
+"t&euml; shkarkohen n&euml; t&euml;r&euml;si, si dhe n&euml;n licens&euml;"
+" t&euml; hapur q&euml; lejon p&euml;rdorimin dhe ri-p&euml;rdorimin nga "
+"publiku i gjer&euml;. Psh, nj&euml; shembull i licens&euml;s s&euml; "
+"hapur &euml;sht&euml;:"
+msgstr ""
+
+#: app/templates/recommendationPage.html:64
+msgid ""
+"T&euml; dh&euml;nat duhet t&euml; formatohen, ruhen dhe vihen n&euml; "
+"dispozicion duke p&euml;rdorur standardet nd&euml;rkomb&euml;tare t&euml;"
+" t&euml; dh&euml;nave. N&euml; k&euml;t&euml; rast &euml;sht&euml; "
+"standardi i t&euml; dh&euml;nave t&euml; bizneseve"
+msgstr ""
+
+#: app/templates/recommendationPage.html:67
+msgid ""
+"Open Data Kosovo &euml;sht&euml; e gatshme p&euml;r bashk&euml;punim "
+"n&euml; implementimin e principeve t&euml; t&euml; dh&euml;nave t&euml; "
+"hapura, p&euml;r t’i ndihmuar institucionet q&euml; t&euml; arrijn&euml; "
+"nivelin m&euml; t&euml; lart&euml; t&euml; transparenc&euml;s, q&euml; "
+"kontribon n&euml; t&euml; mir&euml;n e t&euml; gjith&euml; vendit. Ne "
+"jemi gjithashtu t&euml; hapur t&euml; bashk&euml;punojm&euml; me "
+"partner&euml; tjer&euml; n&euml; zgjerimin e m&euml;tutjesh&euml;m "
+"t&euml; k&euml;tij projekti."
+msgstr ""
+
+#: app/templates/recommendationPage.html:69
+msgid ""
+"Lexoni m&euml; shume p&euml;r l&euml;min&euml; e t&euml; dh&euml;nave "
+"t&euml; hapura:"
+msgstr ""
+
+#: app/templates/recommendationPage.html:73
+msgid ""
+"OGP - Partneriteti i Qeveris&euml; s&euml; Hapur &euml;sht&euml; nj&euml;"
+" nism&euml; shum&euml;pal&euml;she q&euml; synon t&euml; siguroj&euml; "
+"angazhime konkrete nga qeverit&euml; p&euml;r t&euml; nxitur "
+"transparenc&euml;n, p&euml;r t&euml; fuqizuar qytetar&euml;t, p&euml;r "
+"t&euml; luftuar korrupsionin dhe p&euml;r t&euml; shfryt&euml;zuar "
+"teknologjit&euml; e reja p&euml;r t&euml; forcuar qeverisjen. P&euml;r tu"
+" b&euml;r&euml; nj&euml; an&euml;tar i OGP, vendet pjes&euml;marr&euml;se"
+" duhet t&euml; miratojn&euml; nj&euml; Deklarat&euml; t&euml; Lart&euml; "
+"t&euml; Qeveris&euml; s&euml; Hapur, t&euml; hartojn&euml; nj&euml; plan "
+"veprimi t&euml; zhvilluar me konsultim publik dhe t&euml; angazhohen "
+"p&euml;r raportim t&euml; pavarur p&euml;r ecurin&euml; e planit. Deri "
+"tani 75 vende t&euml; bot&euml;s jan&euml; pjes&euml; e OGP-s&euml;."
+msgstr ""
+
+#: app/templates/recommendationPage.html:77
+msgid "Open Knowledge International"
+msgstr ""
+
+#: app/templates/recommendationPage.html:80
+msgid ""
+"Open Knowledge International &euml;sht&euml; nj&euml; organizat&euml; "
+"globale jofitimprur&euml;se e fokusuar n&euml; realizimin e vler&euml;s "
+"s&euml; t&euml; dh&euml;nave t&euml; hapura p&euml;r shoq&euml;rin&euml;,"
+" duke ndihmuar grupet e shoq&euml;ris&euml; civile q&euml; t&euml; "
+"ken&euml; qasje dhe t&euml; p&euml;rdorin t&euml; dh&euml;na p&euml;r "
+"t&euml; zgjidhur problemet sociale."
+msgstr ""
+
+#: app/templates/recommendationPage.html:87
+msgid ""
+"OpenCorporates &euml;sht&euml; databaza m&euml; e madhe e t&euml; "
+"dh&euml;nave t&euml; hapura t&euml; kompanive n&euml; bot&euml;, me "
+"m&euml; shum&euml; se 100 milion&euml; kompani nga e gjith&euml; bota. "
+"Q&euml;llimi primar &euml;sht&euml; q&euml; t&euml; b&euml;jm&euml; "
+"informata m&euml; t&euml; p&euml;rdorshme p&euml;r p&euml;rfitimet "
+"publike, ve&ccedil;an&euml;risht p&euml;r t&euml; trajtuar "
+"p&euml;rdorimin e kompanive p&euml;r q&euml;llime kriminale ose anti-"
+"sociale, si p&euml;r shembull korrupsioni, pastrimin e parave dhe krimin "
+"e organizuar."
+msgstr ""
+
+#: app/templates/recommendationPage.html:91
+msgid ""
+"* Web Scraping &euml;sht&euml; nj&euml; teknik&euml; e p&euml;rdorur "
+"p&euml;r nxjerrjen automatike dhe n&euml; t&euml;r&euml;si t&euml; sasive"
+" t&euml; m&euml;dha t&euml; t&euml; dh&euml;nave nga faqet e internetit."
+msgstr ""
+
+#: app/templates/visualizations.html:15
+msgid "Bizneset sipas Numrit t&euml; Pun&euml;tor&euml;ve"
+msgstr ""
+
+#: app/templates/visualizations.html:24
+msgid "Bizneset e Shuara dhe Aktive"
+msgstr ""
+
+#: app/templates/visualizations.html:25
+msgid "biznese t&euml; themeluara gjat&euml; viteve 2000-2016"
+msgstr ""
+
+#: app/templates/visualizations.html:56
+msgid "Top 10 Aktivitetet q&euml; Sh&euml;rbehen nga Bizneset"
+msgstr ""
+
+#: app/templates/visualizations.html:65
+msgid "Pun&euml;simi n&euml; baz&euml; t&euml; aktiviteteve"
+msgstr ""
+
+#: app/templates/visualizations.html:74
+msgid "Top Aktivitetet n&euml; vitet e fundit"
+msgstr ""
+
+#: app/templates/visualizations.html:83
+msgid "Kapitali Mesatar I Aktiviteteve Gjat&euml; Viteve"
+msgstr ""
+
+#: app/templates/visualizations.html:94
+msgid ""
+"Njoftim! Sipas databaz&euml;s t&euml; importuar nga ARBK gjinia e "
+"pronar&euml;ve t&euml; bizneseve nuk ka qen&euml; e p&euml;rcaktuar, ne "
+"kemi b&euml;r&euml; ndarjen sipas gjinis&euml; duke u bazuar nga emri i "
+"pronar&euml;ve t&euml; bizneseve. Gjinia e pap&euml;rcaktuar "
+"&euml;sht&euml; si rezultat i mosp&euml;rputhjes s&euml; emrit t&euml; "
+"personave me algoritmin ton&euml; q&euml; p&euml;rcakton gjinin&euml;."
+msgstr ""
+
+#: app/templates/visualizations.html:107
+msgid ""
+"Top 10 Aktivitetet Biznesore t&euml; Ndara sipas Gjinis&euml; s&euml; "
+"Pronar&euml;ve"
+msgstr ""
+
+#: app/templates/visualizations/bizTypes.html:4
+#: app/templates/visualizations/gender.html:3
+#: app/templates/visualizations/top10.html:4
+#: app/templates/visualizations/topActivities.html:3
+msgid "Statusi:"
+msgstr ""
+
+#: app/templates/visualizations/bizTypes.html:15
+#: app/templates/visualizations/employeesNum.html:25
+#: app/templates/visualizations/gender.html:12
+#: app/templates/visualizations/top10.html:13
+#: app/templates/visualizations/topActivities.html:12
+msgid "Komuna:"
+msgstr ""
+
+#: app/templates/visualizations/bizTypes.html:38
+#: app/templates/visualizations/gender.html:24
+#: app/templates/visualizations/top10.html:35
+#: app/templates/visualizations/topActivities.html:35
+msgid "Listo"
+msgstr ""
+
+#: app/templates/visualizations/businessesYears.html:3
+msgid "Tipi i dat&euml;s:"
+msgstr ""
+
+#: app/templates/visualizations/businessesYears.html:5
+msgid "Data e aplikimit"
+msgstr ""
+
+#: app/templates/visualizations/top10.html:45
+msgid "Kapitali"
+msgstr ""
+
+#: app/templates/visualizations/topActivities.html:41
+msgid "Shfaq aktivitetet nga:"
+msgstr ""
+
+#: app/templates/visualizations/topActivitiesInRecentYears.html:2
+msgid "Vitin e fundit"
+msgstr ""
+
+#: app/templates/visualizations/topActivitiesInRecentYears.html:5
+msgid "5 vitet e fundit"
+msgstr ""
+
+#: app/templates/visualizations/topActivitiesInRecentYears.html:8
+msgid "10 vitet e fundit"
+msgstr ""
+
+#~ msgid "biznese ne databasen tone."
+#~ msgstr ""
+
+#~ msgid "biznese aktive"
+#~ msgstr ""
+
+#~ msgid "biznese joaktive"
+#~ msgstr ""
+
+#~ msgid "Biznese ne databasen tone."
+#~ msgstr ""
+
+#~ msgid "Biznese ne databasen tone"
+#~ msgstr ""
+
+#~ msgid "Biznese aktive"
+#~ msgstr ""
+
+#~ msgid "Biznese joaktive"
+#~ msgstr ""
+
+#~ msgid "T&euml; dh&euml;nat q&euml; mungojn&euml; tek bizneset"
+#~ msgstr ""
+
+#~ msgid "biznese nuk kan&euml; t&euml; paraqitur numrin fiskal"
+#~ msgstr ""
+
+#~ msgid "prej tyre jan&euml; ende aktive"
+#~ msgstr ""
+
+#~ msgid "biznese nuk kan&euml; t&euml; paraqitur aktivitetet e tyre"
+#~ msgstr ""
+
+#~ msgid "biznese nuk kan&euml; dat&euml; t&euml; konstituimit"
+#~ msgstr ""
+
+#~ msgid "biznese nuk kan&euml; t&euml; paraqitur emrin e pronar&euml;ve"
+#~ msgstr ""
+
+#~ msgid "biznese nuk kan&euml; status t&euml; paraqitur"
+#~ msgstr ""
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "Aktivitet Gjat&euml; Viteve"
+#~ msgstr ""
+
+#~ msgid "biznese ne databasen tone"
+#~ msgstr ""
+
+#~ msgid "Zhvillimi i Bizneseve"
+#~ msgstr ""
+
+#~ msgid "Komuna e zgjedhur"
+#~ msgstr ""
+
+#~ msgid "Top Aktivitetet n&euml; vitet e fundit"
+#~ msgstr ""
+
+#~ msgid "Vitet"
+#~ msgstr ""
+
+#~ msgid "Kapitali Mesatar I Aktiviteteve Gjat&euml; Viteve"
+#~ msgstr ""
+
+#~ msgid "Vitin e fundit"
+#~ msgstr ""
+
+#~ msgid "5 vitet e fundit"
+#~ msgstr ""
+
+#~ msgid "10 vitet e fundit"
+#~ msgstr ""
+
+#~ msgid "P&euml;r"
+#~ msgstr ""
+
+#~ msgid "Pse"
+#~ msgstr ""
+
+#~ msgid "Pun&euml;simi n&euml; baz&euml; t&euml; aktiviteteve"
+#~ msgstr ""
+
+#~ msgid "Ndarja n&euml; baz&euml; t&euml; aktiviteteve biznesore:"
+#~ msgstr ""
+
+#~ msgid "Njoftim"
+#~ msgstr ""
+
+#~ msgid "Aktiviteti:"
+#~ msgstr ""
+
+#~ msgid "K&euml;rko aktivitetin..."
+#~ msgstr ""
+
+#~ msgid "T&euml; gjitha"
+#~ msgstr ""
+
+#~ msgid "Statusi i bizneseve:"
+#~ msgstr ""
+
+#~ msgid "Gjinia e pronarit:"
+#~ msgstr ""
+
+#~ msgid "Fem&euml;r"
+#~ msgstr ""
+
+#~ msgid "Mashkull"
+#~ msgstr ""
+
+#~ msgid "Panjohur"
+#~ msgstr ""
+
+#~ msgid "Aktiv"
+#~ msgstr ""
+
+#~ msgid "I shuar"
+#~ msgstr ""
+
+#~ msgid "Rezultatet:"
+#~ msgstr ""
+
+#~ msgid "Emri i Biznesit"
+#~ msgstr ""
+
+#~ msgid "Statusi i Biznesit"
+#~ msgstr ""
+
+#~ msgid "Vendi"
+#~ msgstr ""
+
+#~ msgid "Pronar&euml;t"
+#~ msgstr ""
+
+#~ msgid "Personat e autorizuar"
+#~ msgstr ""
+
+#~ msgid "Shkarkoni dokumentet sipas viteve"
+#~ msgstr ""
+
+#~ msgid "Data e fillimit"
+#~ msgstr ""
+
+#~ msgid "Data e aplikimit"
+#~ msgstr ""
+
+#~ msgid "Shkarko"
+#~ msgstr ""
+
+#~ msgid "Shkarkoni t&euml; gjitha bizneset"
+#~ msgstr ""
+
+#~ msgid "Shkarko zip"
+#~ msgstr ""
+
+#~ msgid "T&euml; shfaqura"
+#~ msgstr ""
+
+#~ msgid "dokumente"
+#~ msgstr ""
+
+#~ msgid "nga"
+#~ msgstr ""
+
+#~ msgid "Komuna"
+#~ msgstr ""
+
+#~ msgid "Nuk u gjet ansj&euml; dokument!"
+#~ msgstr ""
+
+#~ msgid "Faqe"
+#~ msgstr ""
+
+#~ msgid "E para"
+#~ msgstr ""
+
+#~ msgid "Prapa"
+#~ msgstr ""
+
+#~ msgid "Përpara"
+#~ msgstr ""
+
+#~ msgid "E fundit"
+#~ msgstr ""
+
+#~ msgid "Rekomandimet - Bizneset e Hapura"
+#~ msgstr ""
+
+#~ msgid "Bizneset e Hapura"
+#~ msgstr ""
+
+#~ msgid "Zhvillimi i Bizneseve - Bizneset e Hapura"
+#~ msgstr ""
+
+#~ msgid "Harta - Bizneset e Hapura"
+#~ msgstr ""
+
+#~ msgid "Shkarko - Bizneset e Hapura"
+#~ msgstr ""
+
+#~ msgid "P&euml;r Bizneset e Hapura?"
+#~ msgstr ""
+
+#~ msgid "K&euml;rkimi"
+#~ msgstr ""
+
+#~ msgid "Vizualizimi i t&euml; dh&euml;nave "
+#~ msgstr ""
+
+#~ msgid "Harta"
+#~ msgstr ""
+
+#~ msgid "T&euml; Dh&euml;nat Gjysmake"
+#~ msgstr ""
+
+#~ msgid "biznese n&euml; databas&euml;n ton&euml;"
+#~ msgstr ""
+
+#~ msgid "K&euml;rko personin:"
+#~ msgstr ""
+
+#~ msgid "Sh&euml;no emrin e personit"
+#~ msgstr ""
+
+#~ msgid "Statusi i personit:"
+#~ msgstr ""
+
+#~ msgid "Pronar"
+#~ msgstr ""
+
+#~ msgid "Person i Autorizuar"
+#~ msgstr ""
+
+#~ msgid "K&euml;rko biznesin:"
+#~ msgstr ""
+
+#~ msgid "Sh&euml;no emrin e biznesit"
+#~ msgstr ""
+
+#~ msgid "Statusi i biznesit:"
+#~ msgstr ""
+
+#~ msgid "Zgjedh komun&euml;n:"
+#~ msgstr ""
+
+#~ msgid "Gjith&euml; Kosova"
+#~ msgstr ""
+
+#~ msgid "K&euml;rko"
+#~ msgstr ""
+
+#~ msgid "Zbuloni Gjendjen e Bizneseve n&euml; Kosov&euml;"
+#~ msgstr ""
+
+#~ msgid "Shiko"
+#~ msgstr ""
+
+#~ msgid "Llojet e Bizneseve"
+#~ msgstr ""
+
+#~ msgid "Bizneset sipas Numrit t&euml; Pun&euml;tor&euml;ve"
+#~ msgstr ""
+
+#~ msgid "Bizneset e Shuara dhe Aktive"
+#~ msgstr ""
+
+#~ msgid "Bizneset Sipas Viteve"
+#~ msgstr ""
+
+#~ msgid "Lorem ipsum"
+#~ msgstr ""
+
+#~ msgid "Top 10 Bizneset Sipas Kapitalit"
+#~ msgstr ""
+
+#~ msgid "Top 10 Aktivitetet q&euml; Sh&euml;rbehen nga Bizneset"
+#~ msgstr ""
+
+#~ msgid "Aktivitetet Gjat&euml; Viteve"
+#~ msgstr ""
+
+#~ msgid "Gjinia e Pronar&euml;ve"
+#~ msgstr ""
+
+#~ msgid "Shkarkoni Dokumentet"
+#~ msgstr ""
+
+#~ msgid "dhe"
+#~ msgstr ""
+
+#~ msgid "Kthehu tek k&euml;rkimi"
+#~ msgstr ""
+
+#~ msgid "Misioni yn&euml;:"
+#~ msgstr ""
+
+#~ msgid "Na ndiqni n&euml;:"
+#~ msgstr ""
+
+#~ msgid "Zhvilluar nga"
+#~ msgstr ""
+
+#~ msgid "Mbyll"
+#~ msgstr ""
+
+#~ msgid "Rezultatet rreth"
+#~ msgstr ""
+
+#~ msgid "Ligji p&euml;r qasje n&euml; dokumente publike"
+#~ msgstr ""
+
+#~ msgid "Open Knowledge International"
+#~ msgstr ""
+
+#~ msgid "biznese t&euml; themeluara gjat&euml; viteve 2000-2016"
+#~ msgstr ""
+
+#~ msgid "Tipi i dat&euml;s:"
+#~ msgstr ""
+
+#~ msgid "Data e konstituimit"
+#~ msgstr ""
+
+#~ msgid "Statusi:"
+#~ msgstr ""
+
+#~ msgid "Komuna:"
+#~ msgstr ""
+
+#~ msgid "Listo"
+#~ msgstr ""
+
+#~ msgid "Kapitali"
+#~ msgstr ""
+
+#~ msgid "Shfaq aktivitetet nga:"
+#~ msgstr ""
+
+#~ msgid "Titulli"
+#~ msgstr ""
+
+#~ msgid "Title"
+#~ msgstr ""
+
+#~ msgid "Permbajtja"
+#~ msgstr ""
+
+#~ msgid "Content"
+#~ msgstr ""
+
+#~ msgid "Fjalekalimet nuk jane te njejta"
+#~ msgstr ""
+
+#~ msgid "Fjalekalimi duhet te jete se paku 6 karaktere"
+#~ msgstr ""
+
+#~ msgid "Konfirmo fjalekalimin"
+#~ msgstr ""
+
+#~ msgid "Eshte administrator"
+#~ msgstr ""
+
+#~ msgid "Perditeso"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "K&euml;tu mund t&euml; gjeni t&euml; "
+#~ "dh&euml;na t&euml; hapura p&euml;r t&euml; "
+#~ "gjith&euml; bizneset e regjistruara ne "
+#~ "Kosov&euml; n&euml; periudh&euml;n 2000 - "
+#~ "2017."
+#~ msgstr ""
+

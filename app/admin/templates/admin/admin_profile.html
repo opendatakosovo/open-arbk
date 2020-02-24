@@ -1,0 +1,31 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{ _('Profili') }}</h1>
+        <div class="form-group">
+            <label for="first_name">{{ _('Emri') }}</label>
+            <input class="form-control" id="first_name" name="first_name" required="" type="text" value="{{user.first_name}}"
+                readonly>
+        </div>
+        <div class="form-group">
+            <label for="first_name">{{ _('Mbiemri') }}</label>
+            <input class="form-control" id="last_name" name="last_name" required="" type="text" value="{{user.last_name}}"
+                readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="email">{{ _('Email adresa') }}</label>
+            <input class="form-control" id="email" name="email" required="" type="text" value="{{user.email}}" readonly>
+        </div>
+
+        <div class="form-group">
+            <h3><span class="label label-default">{{ user.role | role }}</span></h3>
+        </div>
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="{{g.current_lang}}">
+
+<head>
+    {% if "/post/" not in request.path %}
+    <title>
+        {% if request.path == url_for('main.recommendation', lang_code=g.current_lang) %}
+        {{_('Rekomandimet - Bizneset e Hapura')}}
+        {% elif request.path == url_for('main.index', lang_code=g.current_lang) %}
+        {{_('Bizneset e Hapura')}}
+        {% elif request.path == url_for('main.visualization', lang_code=g.current_lang) %}
+        {{_('Zhvillimi i Bizneseve - Bizneset e Hapura')}}
+        {% elif request.path == url_for('main.activity_map', lang_code=g.current_lang) %}
+        {{_('Harta - Bizneset e Hapura')}}
+        {% elif request.path == url_for('main.download_page', lang_code=g.current_lang) %}
+        {{_('Shkarko - Bizneset e Hapura')}}
+        {% else %}
+        {{_('Bizneset e Hapura')}}
+        {% endif %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='img/faviconARBK.png')}}" />
+    <!-- Facebook meta tags -->
+    <meta property="og:title" content="{{_('Bizneset e Hapura')}}">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{_('Bizneset e Hapura')}}" />
+    <meta property="og:description"
+        content="{{_('K&euml;tu mund t&euml; gjeni t&euml; dh&euml;na t&euml; hapura p&euml;r t&euml; gjith&euml; bizneset e regjistruara ne Kosov&euml; n&euml; periudh&euml;n 2000 - 2019.')}}">
+    <meta property="og:image:url" content="{{ url_for('static', filename="img/share_fb1_%s.jpg"%g.current_lang) }}">
+    <meta property="og:url" content="http://biznesetehapura.com{{request.path}}">
+    <!-- Twitter meta tags -->
+    <meta property="twitter:title" content="{{_('Bizneset e Hapura')}}">
+    <meta property="twitter:description"
+        content="{{_('K&euml;tu mund t&euml; gjeni t&euml; dh&euml;na t&euml; hapura p&euml;r t&euml; gjith&euml; bizneset e regjistruara ne Kosov&euml; n&euml; periudh&euml;n 2000 - 2019.')}}">
+    <meta property="twitter:image" content="{{ url_for('static', filename="img/share_tw_%s.jpg"%g.current_lang) }}">
+    <meta property="twitter:card" content="summary_medium_image">
+    <meta name="twitter:creator" content="@OpenDataKosovo">
+
+    {% else %}
+    {% block htmlmetatags %}
+    {% endblock %}
+    {% endif %}
+
+    <link rel="stylesheet" type="text/css"
+        href="//fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+    <link href=“//fonts.googleapis.com/css?family=Roboto:400,900” rel=“stylesheet”>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom_style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/animate.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/blog.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/preLoader.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{url_for('static', filename="js/scroll.js")}}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-59188119-7', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
+    <script src="{{url_for('static', filename='js/full_numbers_no_ellipses.js')}}"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="main-header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/{{g.current_lang}}">{{_('Bizneset e Hapura')}}</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li {% if request.path==url_for('main.recommendation', lang_code=g.current_lang) %}class="active"
+                            {% endif %}><a class="tabs"
+                                href="{{ url_for('main.recommendation', lang_code=g.current_lang) }}">{{_('P&euml;r
+                                Bizneset e Hapura?')}}</a></li>
+                        <li {% if request.path==url_for('main.index', lang_code=g.current_lang) %}class="active" {%
+                            endif %}><a class="tabs"
+                                href="{{ url_for('main.index', lang_code=g.current_lang) }}">{{_('K&euml;rkimi')}}</a>
+                        </li>
+                        <li {% if request.path==url_for('main.visualization', lang_code=g.current_lang) %}class="active"
+                            {% endif %}><a class="tabs"
+                                href="{{ url_for('main.visualization', lang_code=g.current_lang) }}">{{_('Vizualizimi
+                                i t&euml; dh&euml;nave ')}}</a></li>
+                        <li {% if request.path==url_for('main.activity_map', lang_code=g.current_lang) %}class="active"
+                            {% endif %}><a class="tabs"
+                                href="{{ url_for('main.activity_map', lang_code=g.current_lang) }}">{{_('Harta')}}</a>
+                        </li>
+                        <li><a href="{{ url_for('main.blog_page', lang_code=g.current_lang) }}">{{_('Blog')}}</a></li>
+                        <!-- <li><a data-toggle="modal" data-target="#myModal" href="#">{{_('T&euml; Dh&euml;nat
+                                Gjysmake')}}</a></li> -->
+                        <li {% if request.path==url_for('main.download_page', lang_code=g.current_lang) %}class="active"
+                            {% endif %}><a
+                                href="{{ url_for('main.download_page', lang_code=g.current_lang) }}">{{_('Shkarko')}}</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" id="lang-select" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">
+                                <script>document.write("{{g.current_lang}}".toUpperCase())</script><span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="language-switch sq">SQ</a>
+                                </li>
+                                <li><a href="#" class="language-switch en">EN</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+
+    <!-- Header -->
+    <div {% if request.path==url_for('main.index', lang_code=g.current_lang) %}class="header" {% elif request.path==url_for('main.visualization',
+        lang_code=g.current_lang) %}class="visualization_header" {% elif request.path==url_for('main.activity_map',
+        lang_code=g.current_lang) %}class="map-header" {% else%} class="header" {% endif %}>
+        <div class="bg-color">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row">
+                        {% if request.path == url_for('main.index', lang_code=g.current_lang) %}
+                        <div class="col-xs-12 banner-info text-center">
+                            <div class="col-xs-12">
+                                <h2 class="bnr-sub-title">{{_('K&euml;rko biznese, pronar&euml;, apo persona t&euml;
+                                    autorizuar p&euml;r kompanit&euml; e regjistruara n&euml; Kosov&euml;')}}</h2>
+                            </div>
+                            <div class="col-xs-12 text-center" style="padding-bottom:40px;">
+                                <div class="col-xs-12 col-sm-4 col-md-4" id="top-stat">
+                                    <span class="stat-heading countUp" id="stat-all"></span><br>
+                                    <span id="stat-bt">{{_('biznese n&euml; databas&euml;n ton&euml;')}}</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4" id="act-stat">
+                                    <span class="stat-heading countUp" id="stat-act"></span><br>
+                                    <span id="stat-bt">{{_('biznese aktive')}}</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4" id="inact-stat">
+                                    <span class="stat-heading countUp" id="stat-inact"></span><br>
+                                    <span id="stat-btn">{{_('biznese joaktive')}}</span>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col-xs-12 text-center">
+                                {{_('K&euml;rko p&euml;rmes nj&euml; apo m&euml; shum&euml; kritereve t&euml;
+                                m&euml;poshtme:')}}<br>
+                                <br>
+                            </div>
+                            <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                                <form class="form" id="search-form" method="POST"
+                                    action="{{ url_for('main.index', lang_code=g.current_lang) }}">
+                                    <div id="imaginary_container">
+                                        <div class="row">
+                                            <div class="stylish-input-group form-group col-sm-8 col-xs-12">
+                                                <label for="places">{{_('K&euml;rko personin:')}}</label>
+                                                <input type="text" class="form-control" name="person"
+                                                    id="person-search-field"
+                                                    placeholder="{{_('Sh&euml;no emrin e personit')}}">
+                                            </div>
+                                            <div class="search-people-input select-kind form-group col-sm-4 col-xs-12">
+                                                <label for="type">{{_('Statusi i personit:')}}</label>
+                                                <select id="typeSearch" class="custom-form-item form-control"
+                                                    name="person_status">
+                                                    <option value="any">{{_('T&euml; gjitha')}}</option>
+                                                    <option value="owner">{{_('Pronar')}}</option>
+                                                    <option value="auth">{{_('Person i Autorizuar')}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="stylish-input-group form-group col-sm-8 col-xs-12">
+                                                <label for="places">{{_('K&euml;rko biznesin:')}}</label>
+                                                <input type="text" class="form-control" name="business"
+                                                    id="biz-search-field"
+                                                    placeholder="{{_('Sh&euml;no emrin e biznesit')}}">
+                                            </div>
+                                            <div class="search-people-input select-kind form-group col-sm-4 col-xs-12">
+                                                <label for="type">{{_('Statusi i biznesit:')}}</label>
+                                                <select id="biz_statusSearch" class="custom-form-item form-control"
+                                                    name="biz_status">
+                                                    <option value="any" selected="selected">{{_('T&euml; gjitha')}}
+                                                    </option>
+                                                    <option value="Aktiv">{{_('Aktiv')}}</option>
+                                                    <option value="Shuar">{{_('I shuar')}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div style="margin-top: 30px;"
+                                                class="search-people-input form-group col-sm-4 col-sm-offset-2 col-xs-12">
+                                                <label for="places"
+                                                    id="pick-muni-lbl">{{_('Zgjedh komun&euml;n:')}}</label>
+                                                <select id="placesSearch" class="custom-form-item form-control"
+                                                    name="municipality" id="poz">
+                                                    <option value="any" selected="selected">{{_('Gjith&euml; Kosova')}}
+                                                    </option>
+                                                    {% for municipality in municipalities%}
+                                                    <option value="{{municipality.slug[g.current_lang]}}">
+                                                        {{municipality.municipality[g.current_lang]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="search-people-input-btn form-group col-sm-4 col-xs-12">
+                                                <button onclick="search()" id="searchBtn" type="button"
+                                                    style="margin-top: 0px;height: 47px;"
+                                                    class="btn btn-default filter-people-btn">{{_('K&euml;rko')}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {% elif request.path == url_for('main.visualization', lang_code=g.current_lang) %}
+                        <div class="banner-info text-center">
+                            <h2 class="bnr-sub-title">{{_('Zbuloni Gjendjen e Bizneseve n&euml; Kosov&euml;')}}</h2>
+                            <span
+                                class="lead">{{_('K&euml;tu mund t&euml; gjeni forma t&euml; ndryshme t&euml;
+                                visualizimeve q&euml; tregojn&euml; gjendjen e bizneseve n&euml; Kosov&euml;.')}}</span><br>
+                            <span class="lead">{{_('Zbuloni se cil&euml;t jan&euml; top dhjet&euml; bizneset me kapital
+                                m&euml; t&euml; madh. M&euml;soni &ccedil;far&euml; industri apo aktivitete biznesore
+                                operojn&euml; m&euml; s&euml; shumti n&euml; qytetin tuaj. Ndani sipas gjinis&euml;,
+                                viteve, apo llojit t&euml; biznesit.')}}</span><br><br>
+                            <div class="btn-group">
+                                <a id="dropSect" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    {{_('Shiko')}}
+                                </a>
+                                <ul class="dropdown-menu" id="viz-drop-ul">
+                                    <li><a class="page-scroll" href="#business-types">{{_('Llojet e Bizneseve')}}</a>
+                                    </li>
+                                    <li><a class="page-scroll" href="#employees">{{_('Bizneset sipas Numrit t&euml;
+                                            Pun&euml;tor&euml;ve')}}</a></li>
+                                    <li><a class="page-scroll" href="#active-inactive">{{_('Bizneset e Shuara dhe
+                                            Aktive')}}</a></li>
+                                    <li><a class="page-scroll" href="#business-years">{{_('Bizneset Sipas Viteve')}}</a>
+                                    </li>
+                                    <li><a class="page-scroll"
+                                            href="#top-ten">{{_('Top 10 Bizneset Sipas Kapitalit')}}</a></li>
+                                    <li><a class="page-scroll" href="#top-ten-activities">{{_('Top 10 Aktivitetet
+                                            q&euml; Sh&euml;rbehen nga Bizneset')}}</a></li>
+                                    <li><a class="page-scroll" href="#activities-employment">{{_('Pun&euml;simi n&euml;
+                                            baz&euml; t&euml; aktiviteteve')}}</a></li>
+                                    <li><a class="page-scroll" href="#top-recent-activities">{{_('Top Aktivitetet
+                                            n&euml; vitet e fundit')}}</a></li>
+                                    <li><a class="page-scroll" href="#activities-avg-capital-years">{{_('Kapitali
+                                            Mesatar I Aktiviteteve Gjat&euml; Viteve')}}</a></li>
+                                    <li><a class="page-scroll" href="#gender">{{_('Gjinia e Pronar&euml;ve')}}</a></li>
+                                    <li><a class="page-scroll" href="#gender-activities ">{{_('Top 10 Aktivitetet
+                                            Biznesore t&euml; Ndara sipas Gjinis&euml; s&euml; Pronar&euml;ve')}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% elif request.path == url_for('main.activity_map', lang_code=g.current_lang) %}
+                        <div class="banner-info text-center">
+                            <h2 class="bnr-sub-title">{{_('Harta')}}</h2>
+                        </div>
+                        {% elif request.path == url_for('main.download_page', lang_code=g.current_lang) %}
+                        <div class="banner-info text-center">
+                            <h2 class="bnr-sub-title">{{_('Shkarkoni Dokumentet', lang_code=g.current_lang)}}</h2>
+                            <span class="lead">
+                                {{_('T&euml; dh&euml;nat e paraqitura t&euml; bizneseve jan&euml; nxjerr&euml; nga
+                                faqja zyrtare e ARBK’s&euml; duke p&euml;rdorur metod&euml;n e quajtur')}} <span><q>Web
+                                        Scraping</q></span>. {{_('Kjo teknologji e p&euml;rdorur sh&euml;rben p&euml;r
+                                nxjerrjen automatike dhe n&euml; t&euml;r&euml;si t&euml; sasive t&euml; m&euml;dha
+                                t&euml; t&euml; dh&euml;nave nga faqet e internetit. K&euml;to t&euml; dh&euml;na
+                                jan&euml; nxjerr&euml; mes dat&euml;s')}} <span class="date-text">11-03-2019</span>
+                                {{_('dhe')}} <span class="date-text">19-03-2019</span>.
+                            </span>
+                        </div>
+                        {% elif request.path == url_for('main.recommendation', lang_code=g.current_lang) %}
+                        <div class="banner-info text-center">
+                            <h2 class="bnr-sub-title">{{_('P&euml;r Bizneset e Hapura?')}}</h2>
+                        </div>
+                        {% elif request.path == url_for('main.blog_page', lang_code=g.current_lang) %}
+                        <div class="banner-info text-center">
+                            <h2 class="bnr-sub-title">{{_('BLOG')}}</h2>
+                        </div>
+                        {% elif "/post/" in request.path %}
+
+                        {% else %}
+                        <div class="banner-info text-center">
+                            <h2 class="bnr-sub-title"><a href="/"
+                                    style="color: #fff;">{{_('Kthehu tek k&euml;rkimi')}}</a></h2>
+                        </div>
+                        {% endif %}
+                        {% block header %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Content -->
+    <section id="service" class="section-padding">
+        <div class="container">
+            {% if request.path == url_for('main.index', lang_code=g.current_lang) %}<h3 style="text-align:center;">
+                {{_('Rezultatet:')}}</h3>{%
+            endif %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row" style="padding: 20px 0px;">
+                <div class="col-xs-12 col-sm-4 footCols">
+                    <a href="//www.opendatakosovo.org" target="_blank">
+                        <img src="{{url_for('static', filename='img/logo.png')}}" class="img-responsive"
+                            id="footer-logo" alt="">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 footCols text-center">
+                    <span id="mission">{{_('Misioni yn&euml;:')}}</span><br>
+                    <span>{{_('Open Data Kosovo beson q&euml; hapja e t&euml; dh&euml;nave &euml;sht&euml; esenciale
+                        n&euml; vendosjen e qeverisjes s&euml; mir&euml;, qeverisjes transparente dhe
+                        llogaridh&euml;n&euml;se.')}}</span>
+                </div>
+                <div class="col-xs-12 col-sm-4 footCols" style="text-align:center">
+                    <span id="ndjekja">{{_('Na ndiqni n&euml;:')}}</span><br><br>
+                    <div class="follow-us">
+                        <a href="https://www.facebook.com/opendatakosovo" target="_blank">
+                            <div class="fb social">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                        <a href="https://twitter.com/OpenDataKosovo" target="_blank">
+                            <div class="tw social">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                        <a href="mailto:info@opendatakosovo.org" target="_blank">
+                            <div class="eM social">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="background-color: #d8d8d8;color: #4f4f4f;">
+            <div class="row" style="padding: 9px 0px;font-size: 12px;">
+                <div class="col-xs-12 text-center">
+                    {{_('T&euml; dh&euml;nat e paraqitura t&euml; bizneseve jan&euml; nxjerr&euml; nga faqja zyrtare e
+                    ARBK’s&euml; duke p&euml;rdorur metod&euml;n e quajtur')}} <span><i>'Web Scraping'</i></span>.
+                    {{_('Kjo teknologji e p&euml;rdorur sh&euml;rben p&euml;r nxjerrjen automatike dhe n&euml;
+                    t&euml;r&euml;si t&euml; sasive t&euml; m&euml;dha t&euml; t&euml; dh&euml;nave nga faqet e
+                    internetit. K&euml;to t&euml; dh&euml;na jan&euml; nxjerr&euml; mes dat&euml;s')}} <span
+                        class="date-text">11-03-2019</span>
+                    {{_('dhe')}} <span class="date-text">19-03-2019</span>.
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            {{_('Zhvilluar nga')}} <a target="_blank" href="https://opendatakosovo.org/">Open Data Kosovo</a>
+        </div>
+    </footer>
+    <!-- Missing Data Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" style="color: black;font-weight: bold;" id="missing-data-title">{{_('T&euml;
+                        Dh&euml;nat Gjysmake')}}</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                            <br>
+                            <h4 class="missing-text">{{_('<b class="missing-header">62 022</b> biznese nuk kan&euml;
+                                t&euml; paraqitur numrin fiskal, <b>52 022</b> prej tyre jan&euml; ende aktive')}}.
+                            </h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+                            <br>
+                            <h4 class="missing-text">{{_('<b class="missing-header">7 643</b> biznese nuk kan&euml;
+                                t&euml; paraqitur aktivitetet e tyre, <b>759</b> prej tyre jan&euml; ende aktive')}}.
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                            <br>
+                            <h4 class="missing-text">{{_('<b class="missing-header">2 269</b> biznese nuk kan&euml;
+                                dat&euml; t&euml; konstituimit, <b>543</b> prej tyre jan&euml; ende aktive')}}.</h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+                            <br>
+                            <h4 class="missing-text">{{_('<b class="missing-header">523</b> biznese nuk kan&euml;
+                                t&euml; paraqitur emrin e pronar&euml;ve, <b>464</b> prej tyre jan&euml; ende
+                                aktive')}}.</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                            <br>
+                            <h4 class="missing-text">{{_('<b class="missing-header">4</b> biznese nuk kan&euml; status
+                                t&euml; paraqitur')}}.</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{_('Mbyll')}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.easing.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/wow.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dropSect').mouseenter(function () {
+                $(this).css(
+                    {
+                        "background": "#fff url('{{ url_for('static', filename='img/black-arrow.png')}}') no-repeat scroll 95% center",
+                        "background-size": "8px",
+                        "color": "#343434",
+                        "box-shadow": "none"
+                    }
+                )
+            });
+            $('#dropSect').mouseleave(function () {
+                $(this).css(
+                    {
+                        "background": "transparent url('{{ url_for('static', filename='img/white-arrow.png')}}') no-repeat scroll 95% center",
+                        "background-size": "8px",
+                        "color": "#fff",
+                        "box-shadow": "none"
+                    }
+                )
+            });
+            var currentlang = "{{ g.current_lang }}";
+            $('.language-switch').removeClass('active');
+            $('.' + currentlang).addClass('active');
+            $(".language-switch").click(function () {
+                var value = "/" + $(this).text().toLowerCase();
+                var current_lang = "/" + "{{ g.current_lang }}";
+                if (current_lang != "") {
+                    window.location.href = window.location.href.replace(current_lang, value);
+                } else {
+                    window.location.href = window.location.href + value + "/";
+                }
+            });
+            $('body').on('touchstart click', function (e) {
+                if (!$(e.target).is('a')) {
+                    $('.collapse').collapse('hide');
+                }
+                if ($(e.target).is('#dropSect')) {
+                    $('#dropSect').css(
+                        {
+                            "background": "#fff url('{{ url_for('static', filename='img/black-arrow.png')}}') no-repeat scroll 95% center",
+                            "background-size": "8px",
+                            "color": "#343434",
+                            "box-shadow": "none"
+                        }
+                    )
+                } else {
+                    $('#dropSect').css(
+                        {
+                            "background": "transparent url('{{ url_for('static', filename='img/white-arrow.png')}}') no-repeat scroll 95% center",
+                            "background-size": "8px",
+                            "color": "#fff",
+                            "box-shadow": "none"
+                        }
+                    )
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

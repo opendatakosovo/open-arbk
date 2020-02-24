@@ -1,0 +1,82 @@
+.outer {
+  fill: #00b7c6;
+}
+.middle {
+  fill: #fff;
+}
+#bizTypesLoader, #topActivitiesLoader, #topRecentActivitiesLoader, #genderLoader,#employeesLoader, #activityEmploymentLoader{
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 999;
+    margin-top: 30px !important;
+    background-color: #fff
+}
+#genderActivitiesLoader{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    z-index: 999;
+    background-color: #fff
+}
+#activityYearsLoader, #activityAvgCapitalYearsLoader, #ActInactLoader, #thruYearsLoader{
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 999;
+    background-color: #fff
+}
+.hourglass {
+      display: block;
+      background: #dad8d2;
+      margin: auto;
+      width: 20px;
+      height: 40px;
+      box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 0 4em 0;
+      -webkit-animation: hourglass 1s linear infinite;
+      animation: hourglass 1s linear infinite;
+  }
+@-webkit-keyframes hourglass {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 4em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  80% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+}
+@keyframes hourglass {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 4em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  80% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
+  }
+}

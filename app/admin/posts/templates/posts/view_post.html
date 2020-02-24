@@ -1,0 +1,84 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+{% if post['feature_img'] %}
+<div class="row">
+    <div class="col-lg-12">
+        <h4>{{ _('Fotoja kryesore')}}</h4>
+        <img src="/static/img/blog/{{post['feature_img']}}" class="img-responsive"
+            style="max-width: 100%; max-height: 300px;">
+    </div>
+</div>
+<br>
+{% endif %}
+<span class="label label-primary">{{ _('Shqip')}}</span>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{post['title_al'] }}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel-body">
+            <div class="post-content-al">{{post['content_al']}}</div>
+        </div>
+    </div>
+</div>
+<br>
+<span class="label label-primary">{{ _('English')}}</span>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{post['title_en'] }}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel-body">
+            <div class="post-content-en">{{post['content_en']}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel-body">
+            <h4>
+                <span class="label label-primary">{{ _('Autori')}}: {{author['first_name']}}
+                    {{author['last_name']}}</span>
+                <span class="label label-default">{{ _('Statusi')}}: {{post['status'] | post_status}}</span>
+            </h4>
+            <div class="pull-right">
+                {% if post['status'] == 0 %}
+                <a class="btn btn-primary" type="button"
+                    href="{{ url_for('posts.status', lang_code=g.current_lang, post_id=post['_id'], status=1)}}">
+                    {{ _('Publiko') }}
+                </a>
+                {% elif post['status'] == 1 %}
+                <a class="btn btn-primary" type="button"
+                    href="{{ url_for('posts.status', lang_code=g.current_lang, post_id=post['_id'], status=0)}}">
+                    {{ _('Mos e publiko') }}
+                </a>
+                {% endif %}
+                <a class="btn btn-warning" type="button"
+                    href="{{ url_for('posts.edit', lang_code=g.current_lang, post_id=post['_id'])}}">
+                    {{ _('Ndrysho') }}
+                </a>
+                <a class="btn btn-danger" type="button"
+                    href="{{ url_for('posts.delete', lang_code=g.current_lang, post_id=post['_id'])}}">
+                    {{ _('Fshij') }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

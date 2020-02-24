@@ -1,0 +1,81 @@
+{% extends "admin_base.html" %}
+
+
+{% block content %}
+
+<div class="row">
+    <h1 class="page-header">{{ _('Shto nje postim') }}</h1>
+    <form method="POST">
+        {# This hidden_tag is a CSRF security feature. #}
+        {{ form.hidden_tag() }}
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-picture-o fa-fw"></i> {{ form.feature_img.label }}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    {{ form.feature_img(class="hide-form") }}
+                    <input id="image-input" type='file'>
+                    <p class="pull-right delete-img" style="cursor: pointer;"><i class="fa fa-trash fa-fw"></i> {{
+                        _('Fshij')}}</p>
+                    <br>
+                    <img id="img">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-plus fa-fw"></i> Shqip</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    {{ form.title_al.label }} {{ form.title_al(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.content_al.label }} {{ form.content_al(class="hide-form") }}
+                    <div class="editor_al">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-plus fa-fw"></i> English</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    {{ form.title_en.label }} {{ form.title_en(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.content_en.label }} {{ form.content_en(class="hide-form") }}
+                    <div class="editor_en">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        {{ form.submit(class="btn btn-primary pull-right submit-post-button") }}
+
+    </form>
+
+
+</div>
+<!-- /.col-lg-12 -->
+</div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style media="screen">
+    .header {
+        min-height: auto;
+    }
+    .bg-color{
+        min-height: auto;
+    }
+</style>
+    <!--Content -->
+    <section id="service" class="section-padding wow fadeIn delay-05s">
+      <div class="container">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span>{{_('Njoftim! P&euml;r shkaqe sigurie personale numri identifikues i pronar&euml;ve nuk mund t&euml; shfaqet. Si pasoj&euml;, pronar&euml;t me em&euml;r dhe mbiem&euml;r t&euml; njejt&euml; paraqiten n&euml; list&euml; si nj&euml; person i vet&euml;m.')}}</span>
+        </div>
+        <div class="row">
+          <h3 style="text-align:center;">{{_('Rezultatet rreth')}} {{person}}</h3>
+          <div class="col-xs-12 text-left">
+              <span>
+                  {%if count < 10%}
+                     {{_('T&euml; shfaqura')}} <b>{{count}}</b> {{_('dokumente')}}
+                  {%else%}
+                     {{_('T&euml; shfaqura')}} <b><span id="tableLength"></span></b> {{_('nga')}} <b>{{"{:,.0f}".format(count).replace(',',' ')}}</b> {{_('dokumente')}}
+                  {%endif%}
+              </span>
+          </div>
+          <div class="col-xs-12" style="overflow-x:auto">
+              <table class="table table-striped table-bordered" id="searchTable">
+                  <thead>
+                      <tr>
+                          <th>{{_('Emri i Biznesit')}}</th>
+                          <th>{{_('Statusi i Biznesit')}}</th>
+                          <th>{{_('Komuna')}}</th>
+                          <th>{{_('Pronar&euml;t')}}</th>
+                          <th>{{_('Personat e autorizuar')}}</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {%if count != 0%}
+                          {% for doc in profile_data %}
+                          <tr>
+                              <td><a href="{{doc['arbkUrl']}}">{{doc['name']}}</a></td>
+                              <td>{{doc['status'][g.current_lang]}}</td>
+                              <td>{{doc['municipality']['municipality'][g.current_lang]}}</td>
+                              <td>
+                                  {% for owner in doc['owners'] %}
+                                  <a href="{{url_for('main.profile', status="owner", person=owner['name'], lang_code=g.current_lang)}}">{{owner['name']}}</a><br/>
+                                  {% endfor %}
+                              </td>
+                              <td>
+                                  {% for auth in doc['authorized'] %}
+                                  <a href="{{url_for('main.profile', status="authorized", person=auth['name'], lang_code=g.current_lang)}}">{{auth['name']}}</a><br/>
+                                  {% endfor %}
+                              </td>
+                          </tr>
+                          {% endfor %}
+                      {%else%}
+                          <tr>
+                              <td colspan="5" class="text-center">
+                                  {{_('Nuk u gjet ansj&euml; dokument!')}}
+                              </td>
+                          </tr>
+                      {%endif%}
+                  </tbody>
+              </table>
+          </div>
+          <div class="col-xs-12 text-center">
+              <div class="text-center">
+                  <span>{{_('Faqe')}} <b><span id="pageStart"></span></b> {{_('nga')}} <b><span id="pageEnd"></span></b></span>
+              </div>
+              <ul id="pagination-demo" class="pagination-sm"></ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{{url_for('static', filename='js/jquery.twbsPagination.js')}}"></script>
+    <script src="{{url_for('static', filename='js/urlEncoder.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#tableLength').html($('#searchTable tbody tr').length);
+            $('html, body').stop().animate({
+                scrollTop: ($('#searchTable').offset().top - 190)
+            }, 1250, 'easeInOutExpo');
+            var urlParam = parseInt(getUrlParameter('page'));
+            if (isNaN(parseFloat(urlParam))) {
+                urlParam = 1;
+            }
+            var totPages = Math.ceil(parseInt("{{count}}")/parseInt("{{items_per_page}}"))
+            if (totPages < urlParam) {
+                $('#service .container .row').html('<div class="col-xs-12 text-center"><span id="pageNotFound">Faqja nuk u gjet!</span></div>')
+            }
+            $('#pageStart').html(urlParam);
+            $('#pageEnd').html(totPages);
+            if (parseInt("{{count}}") != 0 && totPages >= urlParam) {
+                var txtfirst = "{{_('E para')}}";
+                var txtprev = "{{_('Prapa')}}";
+                var txtnext = "{{_('P\xebrpara')}}";
+                var txtlast = "{{_('E fundit')}}";
+                $('#pagination-demo').twbsPagination({
+                    startPage: urlParam,
+                    totalPages: totPages,
+                    visiblePages: 7,
+                    first:txtfirst,
+                    prev:txtprev,
+                    next:txtnext,
+                    last:txtlast,
+                    initiateStartPageClick: false,
+                    onPageClick: function (event, page) {
+                        window.location.href = "?page="+page;
+                    }
+                });
+            }
+        });
+    </script>
+
+{% endblock %}

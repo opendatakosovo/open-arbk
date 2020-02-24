@@ -1,0 +1,30 @@
+<form id="form-3" class="row form-inline" method="POST">
+    <div class="col-xs-12 col-sm-5 col-md-4 form-group">
+        <label for="status">{{_('Statusi:')}}
+        </label><br>
+        <select class="kind form-control select-vizualizations" name="status" id="stat_gen">
+            <option value="any" selected="selected">{{_('T&euml; gjitha')}}</option>
+            <option value="Aktiv">{{_('Aktiv')}}</option>
+            <option value="Shuar">{{_('I shuar')}}</option>
+        </select>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-4 form-group">
+        <label for="municipalities">{{_('Komuna:')}}
+        </label><br>
+        {% set _stub = komunat.rewind() %}
+
+        <select class="form-control select-vizualizations" name="city_id" id="muni_gen">
+            <option value="any">{{_('T&euml; gjitha')}}</option>
+            {% for i in komunat %}
+            <option value="{{i.municipality[g.current_lang]}}">{{i.municipality[g.current_lang]}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-xs-12 col-sm-2 col-md-2 form-group">
+        <button type="button" id="getGen" class="btn btn-default btn-filter-data" style="border-color: #ccc !important;">{{_('Listo')}}</button>
+    </div>
+</form>
+<div id="genderLoader">
+    {% include 'preLoader.html' %}
+</div>
+<div id="container6" style="min-width: 100%; margin-top:30px !important; height: 400px; max-width: 100%; margin: 0 auto">

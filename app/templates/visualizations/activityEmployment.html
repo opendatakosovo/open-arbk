@@ -1,0 +1,49 @@
+<div class="dropdown" id="dropdown-first">
+    <label for="activity" class="lbl-filter">{{_('Aktiviteti:')}}</label><br>
+    <button style="background-color: #fff;font-weight: 600;" class="btn btn-dropdown dropdown-toggle" type="button" id="dropdown-menu-first" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="selected-employment-value"></span>
+        &nbsp;
+    </button>
+    <input type="text" id="searchActivityEmploymentInput" class="search-activities-dropdown-input" onkeyup="searchActivityEmployment()" placeholder="{{_('K&euml;rko aktivitetin...')}}" autocomplete="off" autofocus>
+    <ul class="dropdown-menu acts activity-ul-dropdown" name="activity" id="activity_employment_val" aria-labelledby="dropdown-menu-first">
+        {% for i in activities%}
+        <li class="acts-li"><a href="javascript:onActivityEmploymentSelection('{{ i['activity'][g.current_lang] }}')">
+            {% if i['code']|length == 3 %}
+                0{{ i['code'] }}
+            {% else %}
+                {{i['code']}}
+            {% endif %}
+             - {{ i['activity'][g.current_lang] }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="activityEmploymentLoader">
+    {% include 'preLoader.html' %}
+</div>
+<div id="container12" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+<script src="{{url_for('static', filename='js/charReplace.js')}}"></script>
+<script>
+function searchActivityEmployment() {
+    // Declare variables
+    var input, filter, ul, li, a, i, aa;
+    input = document.getElementById('searchActivityEmploymentInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("activity_employment_val");
+    li = ul.getElementsByClassName('acts-li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (filter.length > 1) {
+            var charA = replaceChars(a.innerHTML.toUpperCase());
+            if (charA.indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }else {
+            li[i].style.display = "block";
+        }
+    }
+}
+</script>

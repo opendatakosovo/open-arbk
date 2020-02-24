@@ -1,0 +1,65 @@
+<form id="form-employees" class="row form-inline" method="POST">
+<div class="col-xs-12 col-sm-12 col-md-4 form-group">
+<div class="dropdown" id="dropdown-first">
+        <label for="activity" class="lbl-filter">{{_('Aktiviteti:')}}</label><br>
+        <button style="background-color: #fff;font-weight: 600;" class="btn btn-dropdown dropdown-toggle" type="button" id="dropdown-menu-first" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="selected-value-employee-num"></span>
+            &nbsp;
+        </button>
+        <input type="text" id="searchActivityInputEmployeesNum" class="search-activities-dropdown-input" onkeyup="searchActivityEmployeesNum()" placeholder="{{_('K&euml;rko aktivitetin...')}}" autocomplete="off" autofocus>
+        <ul class="dropdown-menu acts activity-ul-dropdown" name="activity" id="activity_val_employees_num" aria-labelledby="dropdown-menu-first">
+            <li class="acts-li"><a href="javascript:onActivitySelectionEmployeesNum('{{_('T&euml; gjitha')}}')">{{_('T&euml; gjitha')}}</a></li>            
+            {% for i in activities%}
+            <li class="acts-li"><a href="javascript:onActivitySelectionEmployeesNum('{{ i['activity'][g.current_lang] }}')">
+                {% if i['code']|length == 3 %}
+                    0{{ i['code'] }}
+                {% else %}
+                    {{i['code']}}
+                {% endif %}
+                 - {{ i['activity'][g.current_lang] }}</a></li>
+            {% endfor %}
+        </ul>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4 form-group" style="margin-top: 10px;">
+        <label for="municipalities">{{_('Komuna:')}}
+        </label><br>
+        {% set _stub = komunat.rewind() %}
+        <select class="form-control select-vizualizations" name="city_id" id="municipality_employees_num">
+            <option value="any">{{_('T&euml; gjitha')}}</option>
+            {% for i in komunat %}
+            <option value="{{i.municipality[g.current_lang]}}">{{i.municipality[g.current_lang]}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</form>
+<div id="employeesLoader">
+        {% include 'preLoader.html' %}
+    </div>
+<div id="empContainer" style="min-width: 100%; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script>
+        function searchActivityEmployeesNum() {
+            // Declare variables
+            var input, filter, ul, li, a, i, aa;
+            input = document.getElementById('searchActivityInputEmployeesNum');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("activity_val_employees_num");
+            li = ul.getElementsByClassName('acts-li');
+    
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (filter.length > 1) {
+                    var charA = replaceChars(a.innerHTML.toUpperCase());
+                    if (charA.indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }else {
+                    li[i].style.display = "block";
+                }
+            }
+        }
+        </script>

@@ -1,0 +1,219 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="table-search" class="col-xs-12">
+    <div class="col-xs-12 text-left">
+        <span>
+            {%if count < 10%}
+            {{_('T&euml; shfaqura')}} <b>{{count}}</b> {{_('dokumente')}}
+            {%else%}
+            {{_('T&euml; shfaqura')}} <b><span id="tableLength"></span></b> {{_('nga')}}
+            <b>{{"{:,.0f}".format(count).replace(',',' ')}}</b> {{_('dokumente')}}
+            {%endif%}
+        </span>
+    </div>
+    <div class="col-xs-12" style="overflow-x:auto">
+        <table class="table table-striped table-bordered" id="searchTable">
+            <thead>
+                <tr>
+                    <th>{{_('Emri i Biznesit')}}</th>
+                    <th>{{_('Statusi i Biznesit')}}</th>
+                    <th>{{_('Komuna')}}</th>
+                    <th>{{_('Pronar&euml;t')}}</th>
+                    <th>{{_('Personat e autorizuar')}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if count != 0 %}
+                {% for doc in search_result %}
+                <tr>
+                    <td><a href="{{doc['arbkUrl']}}">{{doc['name']}}</a></td>
+                    <td>{{doc['status'][g.current_lang]}}</td>
+                    <td>{{doc['municipality']['municipality'][g.current_lang]}}</td>
+                    <td>
+                        {% for owner in doc['owners'] %}
+                        <a
+                            href="{{url_for('main.profile', status="owner", person=owner['name'], lang_code=g.current_lang)}}">{{owner['name']}}</a><br />
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for auth in doc['authorized'] %}
+                        <a
+                            href="{{url_for('main.profile', status="authorized", person=auth['name'], lang_code=g.current_lang)}}">{{auth['name']}}</a><br />
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">
+                        {{_('Nuk u gjet ansj&euml; dokument!')}}
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-12 text-center">
+        <div class="text-center">
+            <span>{{_('Faqe')}} <b><span id="pageStart"></span></b> {{_('nga')}} <b><span
+                        id="pageEnd"></span></b></span>
+        </div>
+        <ul id="pagination-demo" class="pagination-sm"></ul>
+    </div>
+    <div class="col-xs-12">
+        <hr />
+        <div class="row">
+            <h4 class="missing-text" style="text-transform: uppercase;"><b
+                    class="missing-header">{{_('T&euml; Dh&euml;nat Gjysmake')}}</b></h4>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                <br>
+                <h4 class="missing-text">{{_('<b class="missing-header">81 397</b> biznese nuk kan&euml;
+                    t&euml; paraqitur numrin fiskal, <b>70 296</b> prej tyre jan&euml; ende aktive')}}.
+                </h4>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+                <br>
+                <h4 class="missing-text">{{_('<b class="missing-header">7 686</b> biznese nuk kan&euml;
+                    t&euml; paraqitur aktivitetet e tyre, <b>753</b> prej tyre jan&euml; ende aktive')}}.
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                <br>
+                <h4 class="missing-text">{{_('<b class="missing-header">6 957</b> biznese nuk kan&euml;
+                    dat&euml; t&euml; regjistrimit dhe <b>4</b> prej tyre jan&euml; ende aktive')}}.</h4>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+                <br>
+                <h4 class="missing-text">{{_('<b class="missing-header">537</b> biznese nuk kan&euml;
+                    t&euml; paraqitur emrin e pronar&euml;ve, <b>458</b> prej tyre jan&euml; ende
+                    aktive')}}.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{url_for('static', filename='js/jquery.twbsPagination.js')}}"></script>
+<script src="{{url_for('static', filename='js/charReplace.js')}}"></script>
+<script src="{{url_for('static', filename='js/urlEncoder.js')}}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="{{url_for('static', filename='js/jquery.counterup.min.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "{{ url_for('main.page_stats', lang_code=g.current_lang) }}",
+            type: 'GET',
+            success: function (data) {
+                numeral.defaultFormat('0,0');
+                var number = numeral(data.total);
+                var num = number.format();
+                var number1;
+                if (data.docs.result[0].total != undefined) {
+                    number1 = numeral(data.docs.result[0].total);
+                } else {
+                    number1 = numeral(0);
+                }
+                var num1 = number1.format();
+                var number2 = numeral(data.docs.result[1].total);
+                var num2 = number2.format();
+                $('#stat-all').text(num)
+                $('#stat-act').text(num1)
+                $('#stat-inact').text(num2)
+                $('.countUp').counterUp({
+                    delay: 10, // the delay time in ms
+                    time: 1500 // the speed time in ms
+                });
+            }
+        })
+        $('#search-form').keydown(function (e) {
+            if (e.keyCode == 13) {
+                search();
+            }
+        });
+        var urlParam = parseInt(getUrlParameter('page'));
+        var municipality = getUrlParameter('municipality');
+        var biz_status = getUrlParameter('biz-status');
+        var person_status = getUrlParameter('person-status');
+        var person = getUrlParameter('person');
+        var business = getUrlParameter('business');
+        $('#tableLength').html($('#searchTable tbody tr').length);
+        if (isNaN(parseFloat(urlParam))) {
+            urlParam = 1;
+        } else {
+            $('html, body').stop().animate({
+                scrollTop: ($('#searchTable').offset().top - 150)
+            }, 600, 'easeInOutExpo');
+        }
+        if (person_status == null || person_status == undefined) {
+            person_status = "any";
+            $('#typeSearch').val("any");
+        } else {
+            $('#typeSearch').val(person_status);
+        }
+        if (biz_status == null || biz_status == undefined) {
+            biz_status = "any";
+            $('#biz_statusSearch').val("any");
+        } else {
+            $('#biz_statusSearch').val(biz_status);
+        }
+        if (municipality == null || municipality == undefined) {
+            municipality = "any";
+            $('#placesSearch').val("any");
+        } else {
+            $('#placesSearch').val(municipality);
+        }
+        if (person == undefined && business == undefined) {
+            person = "";
+            business = "";
+        }
+        $('#person-search-field').val(person);
+        $('#biz-search-field').val(business);
+        var totPages = Math.ceil(parseInt("{{count}}") / parseInt("{{items_per_page}}"));
+        person = replaceChars(person);
+        business = replaceChars(business);
+        if (totPages < urlParam) {
+            $('#table-search').html('<div class="col-xs-12 text-center"><span id="pageNotFound">Faqja nuk u gjet!</span></div>')
+        }
+        $('#pageStart').html(urlParam);
+        var tot = numeral(totPages);
+        var tutnum = tot.format();
+        $('#pageEnd').html(tutnum.replace(',', ' '));
+        if (parseInt("{{count}}") != 0 && totPages >= urlParam) {
+            var txtfirst = "{{_('E para')}}";
+            var txtprev = "{{_('Prapa')}}";
+            var txtnext = "{{_('P\xebrpara')}}";
+            var txtlast = "{{_('E fundit')}}";
+            $('#pagination-demo').twbsPagination({
+                startPage: urlParam,
+                totalPages: totPages,
+                visiblePages: 7,
+                first: txtfirst,
+                prev: txtprev,
+                next: txtnext,
+                last: txtlast,
+                initiateStartPageClick: false,
+                onPageClick: function (event, page) {
+                    window.location.href = "?page=" + page + "&municipality=" + municipality + "&biz-status=" + biz_status + "&person-status=" + person_status + "&person=" + person + "&business=" + business + "";
+                }
+            });
+        }
+    });
+    function search() {
+        // service
+        var municipality = $('#placesSearch').val();
+        var biz_status = $('#biz_statusSearch').val();
+        var person_status = $('#typeSearch').val();
+        var person = $('#person-search-field').val();
+        var business = $('#biz-search-field').val();
+        if (person_status == undefined) person_status = "any";
+        if (biz_status === undefined) biz_status = "any";
+        if (municipality == undefined) municipality = "any";
+        if (person_status == null) person_status = "any";
+        if (biz_status === null) biz_status = "any";
+        if (municipality == null) municipality = "any";
+        person = replaceChars(person);
+        business = replaceChars(business);
+        window.location.href = "?page=1&municipality=" + municipality + "&biz-status=" + biz_status + "&person-status=" + person_status + "&person=" + person + "&business=" + business + "";
+    }
+</script>
+{% endblock %}

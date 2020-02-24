@@ -1,0 +1,15 @@
+.header {
+    min-height: auto;
+}
+.bg-color{
+    min-height: auto;
+}
+.recPage{
+    padding-left: 40px;
+    list-style-type: disc;
+}
+#blogPage{
+    color: #000;
+    font-size: 17px;
+    padding-top: 50px
+}

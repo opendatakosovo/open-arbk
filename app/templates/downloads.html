@@ -1,0 +1,61 @@
+{% extends 'layout.html'%}
+{% block content%}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+    <span>{{_('Njoftim! T&euml; dh&euml;nat p&euml;r bizneset e regjistruara n&euml; vitin 2019 jan&euml; t&euml; pakompletuara. T&euml; dh&euml;nat e fundit q&euml; jan&euml; nxjerr&euml; jan&euml; deri me dat&euml;')}}
+        <span class="date-text">19-03-2019</span>.</span>
+</div>
+<div class="well" style="margin-top: 70px;">
+    <div class="text-center">
+        <h3>{{_('Shkarkoni dokumentet sipas viteve')}}</h3>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <select class="file-type" name="type">
+                <option value="csv">CSV</option>
+                <option value="json">JSON</option>
+            </select>
+            <select class="doc-date-type" name="datetype">
+                <option value="dataRegjistrimit">{{_('Data e regjistrimit')}}</option>
+            </select>
+            <select class="doc-viti" name="year">
+                <option value="2000" selected="selected">2000</option>
+                {%for i in range(2001,20200)%}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+            </select>
+            <a class="btn" onclick="downloadDocYear()">{{_('Shkarko')}}</a>
+        </div>
+    </div>
+    <hr style="border-color:#dadada;">
+    <div class="text-center">
+        <h3>{{_('Shkarkoni t&euml; gjitha bizneset')}}</h3>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <select class="all-file-type" name="type">
+                <option value="csv">CSV</option>
+                <option value="json">JSON</option>
+            </select>
+            <a class="btn" onclick="downloadAllDoc()">{{_('Shkarko zip')}}</a>
+        </div>
+    </div>
+    <hr>
+</div>
+<script type="text/javascript">
+    function downloadAllDoc() {
+        var type = $('.all-file-type').val();
+        var link = "shkarko/" + type + "/all-zip";
+        window.location.href = link;
+    }
+    function downloadDocYear() {
+        var type = $('.file-type').val();
+        var year = $('.doc-viti').val();
+        var dateType = $('.doc-date-type').val();
+        window.location.href = "shkarko/" + type + "/" + dateType + "/" + year;
+    }
+</script>
+{% endblock%}

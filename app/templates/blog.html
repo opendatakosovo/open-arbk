@@ -1,0 +1,59 @@
+{% extends 'layout.html'%}
+{% block content%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/blogPage.css')}}">
+
+<section id="blogPage">
+    <div>
+        {% for post in posts %}
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-center">
+                <div class="thumbnail">
+                    {% if post['feature_img'] %}
+                    <div class="featured-image">
+                        <img src="/static/img/blog/{{ post['feature_img']}}" class="img-responsive" style="max-width: 100%;     max-height: 300px;
+                        margin: 0 auto;" />
+                    </div>
+                    {% endif %}
+
+                    {% if g.current_lang == 'sq' %}
+                    <div class="caption">
+                        <h3>{{ post['title_al']}}</h3>
+                        <span class="single-post-content">{{ post['post_preview_al']}}</span>
+                        <p><a href="{{ url_for('main.single_post', post_id=post['_id'], lang_code=g.current_lang)}}"
+                                class="btn btn-primary pull-right" role="button">{{_('Lexo me shume')}}</a></p>
+                        <br>
+                        <br>
+                    </div>
+                    {% else %}
+                    <div class="caption">
+                        <h3>{{ post['title_en']}}</h3>
+                        <span class="single-post-content">{{ post['post_preview_en']}}</span>
+                        <p><a href="{{ url_for('main.single_post', post_id=post['_id'], lang_code=g.current_lang)}}"
+                                class="btn btn-primary pull-right" role="button">{{_('Read
+                                more')}}</a></p>
+                        <br>
+                        <br>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if totalPosts == 0 %}
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-center">
+                <center>{{ _('Nuk ka postime')}}</center>
+            </div>
+        </div>
+        {% endif %}
+
+        <script type="text/javascript">
+            // When viewing a post update .single-post-content innerHTML
+            $('.single-post-content').html($('.single-post-content').text());
+        </script>
+    </div>
+</section>
+
+
+{% endblock%}

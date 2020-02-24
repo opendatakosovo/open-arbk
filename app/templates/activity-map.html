@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style media="screen">
+    .map-header {
+        display: none;
+    }
+
+    .bg-color {
+        min-height: auto;
+    }
+</style>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/kv/kv-all.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename="js/activityMap.js")}}"></script>
+<div class="row" style="padding-top:100px">
+    <div class="col-xs-12 con1" style="margin-top:30px;margin-bottom:20px;">
+        <h3 class="headers">{{_('Ndarja n&euml; baz&euml; t&euml; aktiviteteve biznesore:')}}</h3>
+        <div class="alert alert-success alert-dissmisable">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <strong>{{ _('Njoftim')}}!</strong>
+            {{_('Klikoni mbi çdo qytet që t\'i shihni të gjitha bizneset sipas kritereve të zgjedhura më poshtë')}}.
+        </div>
+        <hr>
+        <form id="form-3" class="form-inline" method="POST">
+            <div class="form-group">
+                <div class="dropdown" id="dropdown-first">
+                    <label for="activity" class="lbl-filter">{{_('Aktiviteti:')}}</label><br>
+                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdown-menu-first"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span data-code="" class="selected-value"></span>
+                        &nbsp;
+                    </button>
+                    <input type="text" id="searchActivityInput" onkeyup="searchActivity()"
+                        class="search-activities-dropdown-input" placeholder="{{_('K&euml;rko aktivitetin...')}}"
+                        autocomplete="off" autofocus>
+                    <ul class="dropdown-menu acts custom activity-ul-dropdown" name="activity" id="activity_val"
+                        aria-labelledby="dropdown-menu-first">
+                        <li><a href="javascript:onActivitySelection('all')">{{_('T&euml; gjitha')}}</a></li>
+                        {% for i in activities%}
+                        <li class="acts-li"><a
+                                data-filter="{% if i['code']|length == 3 %}0{{ i['code'] }}{% else %}{{i['code']}}{% endif %}"
+                                href="javascript:onActivitySelection('{{ i['activity'][g.current_lang] }}', '{% if i['code']|length == 3 %}0{{ i['code'] }}{% else %}{{i['code']}}{% endif %}')">
+                                {% if i['code']|length == 3 %}
+                                0{{ i['code'] }}
+                                {% else %}
+                                {{i['code']}}
+                                {% endif %}
+                                - {{ i['activity'][g.current_lang] }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="dropdown" id="dropdown-second">
+                    <label for="status" class="lbl-filter"
+                        style="display: inline !important;">{{_('Statusi i bizneseve:')}}</label><br>
+                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdown-menu-second"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="selected-value-status"></span>
+                        &nbsp;
+                    </button>
+                    <ul class="dropdown-menu acts custom" name="status" id="statVal" style="max-width:290px;"
+                        aria-labelledby="dropdown-menu-second">
+                        <li><a href="javascript:onStatusSelection('Aktiv')">{{_('Aktiv')}}</a></li>
+                        <li><a href="javascript:onStatusSelection('Shuar')">{{_('I shuar')}}</a></li>
+                        <li><a href="javascript:onStatusSelection('T&euml; gjitha')">{{_('T&euml; gjitha')}}</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="dropdown-third">
+                    <label for="status" class="lbl-filter"
+                        style="display: inline !important;">{{_('Gjinia e pronarit:')}}</label><br>
+                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdown-menu-second"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span value="" class="selected-value-gender"></span>
+                        &nbsp;
+                    </button>
+                    <ul class="dropdown-menu acts" name="gender" id="genderOwner" style="max-width:290px;"
+                        aria-labelledby="dropdown-menu-second">
+                        <li value="asdads"><a id="asd"
+                                href="javascript:onGenderSelection('{{_('T&euml; gjitha')}}')">{{_('T&euml; gjitha')}}</a>
+                        </li>
+                        <li><a href="javascript:onGenderSelection('{{_('Fem&euml;r')}}')">{{_('Fem&euml;r')}}</a></li>
+                        <li><a href="javascript:onGenderSelection('{{_('Mashkull')}}')">{{_('Mashkull')}}</a></li>
+                        <li><a href="javascript:onGenderSelection('{{_('Panjohur')}}')">{{_('Panjohur')}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <div class="map">
+            <div class="overllay">
+                <div class="loader-gif">
+                    <img src="{{url_for('static', filename='img/preloader.gif')}}" alt="">
+                </div>
+            </div>
+            <div id="mapContainer" style="min-width: 100%; margin-top:30px !important; height: 620px; margin: 0 auto">
+            </div>
+        </div>
+    </div>
+    <div style="margin: 20px auto; display: none" id="businessbyMunicipality" class="col-xs-12">
+        <h3 style="text-align:center;">{{_('Komuna e zgjedhur')}}: <span id="searchedMuni"></span></h3>
+        <h3 style="text-align:center;">{{_('Rezultatet:')}}</h3>
+        <table class="table table-striped table-bordered" id="businessesTable">
+            <thead>
+                <tr>
+                    <th>{{_('Emri i Biznesit')}}</th>
+                    <th>{{_('Statusi i Biznesit')}}</th>
+                    <th>{{_('Vendi')}}</th>
+                    <th>{{_('Pronar&euml;t')}}</th>
+                    <th>{{_('Personat e autorizuar')}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <span>{{_('Njoftim! N&euml; hart&euml; shfaqen vet&euml;m 30 komuna nga 38 komuna gjithsejt. Kjo ndodh&euml; p&euml;r shkak se ende nuk jan&euml; p&euml;rdit&euml;suar komunat e krijuara s&euml; fundmi ne gjeo-portalin shtet&euml;ror. Komunat q&euml; mungojn&euml; jan&euml; t&euml; bashkuara me komun&euml;n t&euml; cil&euml;s i kan&euml; takuar m&euml; par&euml;.')}}</span>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <span>{{_('T&euml; dh&euml;nat e regjistrimeve t&euml; bizneseve q&euml; jan&euml; t&euml; disponueshme n&euml; platform&euml; jan&euml; marr&euml; nga ARBK n&euml; datat 11-03-2019 dhe 19-03-2019. Çdo p&euml;rdit&euml;sim mbi t&euml; dh&euml;nat e b&euml;ra nga ARBK pas k&euml;saj periudhe nuk &euml;sht&euml; e  pasqyruar n&euml; k&euml;to t&euml; dh&euml;na.')}}</span>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='js/charReplace.js')}}"></script>
+    <script>
+        function searchActivity() {
+            // Declare variables
+            var input, filter, ul, li, a, i, aa;
+            input = document.getElementById('searchActivityInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("activity_val");
+            li = ul.getElementsByClassName('acts-li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (filter.length > 1) {
+                    var charA = replaceChars(a.innerHTML.toUpperCase());
+                    if (charA.indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                } else {
+                    li[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+</div>
+{% endblock %}

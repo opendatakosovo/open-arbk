@@ -1,0 +1,76 @@
+<div class="" style="margin-top:30px;">
+    <form id="form-3" class="form-inline row" method="POST">
+        <div class="col-xs-12 col-sm-3 col-md-3 form-group">
+            <label for="status">{{_('Statusi:')}}
+            </label><br>
+            <select class="kind form-control select-vizualizations-custom" name="status" id="kind">
+                <option value="any" selected="selected">{{_('T&euml; gjitha')}}</option>
+                <option value="Aktiv">{{_('Aktiv')}}</option>
+                <option value="Shuar">{{_('I shuar')}}</option>
+            </select>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 form-group">
+            <label for="municipalities">{{_('Komuna:')}}
+            </label><br>
+            {% set _stub = komunat.rewind() %}
+            <select class="form-control select-vizualizations-custom" name="city_id" id="municipality">
+                <option value="any">{{_('T&euml; gjitha')}}</option>
+                {% for i in komunat %}
+                <option value="{{i.municipality[g.current_lang]}}">{{i.municipality[g.current_lang]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 form-group">
+            <label>
+                {{_('Gjinia e pronarit:')}}
+            </label><br>
+            <select class="form-control select-vizualizations-custom" name="owner_gender" id="oGender">
+                <option value="any" selected="selected">{{_('T&euml; gjitha')}}</option>
+                <option value="female">{{_('Fem&euml;r')}}</option>
+                <option value="male">{{_('Mashkull')}}</option>
+                <option value="unknown">{{_('Panjohur')}}</option>
+            </select>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 form-group">
+            <button type="button" onclick="selectDist()" class="btn btn-default btn-filter-data" style="border-color: #ccc !important;">{{_('Listo')}}</button>
+        </div>
+    </form>
+    <div class="" style="overflow: auto;">
+        <table id="topTable" class="table table-responsive table-bordered table-striped table-hover">
+            <thead>
+                <th>#</th>
+                <th>{{_('Emri i Biznesit')}}</th>
+                <th>{{_('Komuna')}}</th>
+                <th>{{_('Statusi i Biznesit')}}</th>
+                <th style="min-width: 168px;">{{_('Kapitali')}}</th>
+            </thead>
+            <tbody>
+                {% for i in top['result'] %}
+                <tr>
+                    <td>
+                        {{loop.index}}
+                    </td>
+                    <td id="topname">
+                        <a href="{{i['arbkUrl']}}">{{i['name']}}</a>
+                    </td>
+                    <td class="ksbk">
+                        {{i['municipality']['municipality'][g.current_lang]}}
+                    </td>
+                    <td class="ksbk">
+                        {{i['status'][g.current_lang]}}
+                    </td>
+                    <td class="ksbk">
+                        <script type="text/javascript">
+                        var number = numeral({{i['capital']}});
+                        number.format();
+                        numeral.defaultFormat('0,0.00');
+                        var num = number.format();
+                        document.write(num+'\u20ac');
+                        </script>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
