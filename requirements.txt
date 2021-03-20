@@ -10,7 +10,7 @@ Flask-Login==0.4.1
 Flask-PyMongo==0.3.1
 Flask-WTF==0.14.2
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.1.0
 pymongo==2.9.5
 pytz==2018.9
