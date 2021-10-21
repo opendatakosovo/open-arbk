@@ -1,5 +1,5 @@
 awesome-slugify==1.6.5
-Babel==2.3.4
+Babel==2.9.1
 beautifulsoup4==4.7.1
 Flask==0.10.1
 Flask-Babel==0.9
